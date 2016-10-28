@@ -1,6 +1,8 @@
-# OS
-- Install Raspbian (Debian 8 Jessie) Lite without PIXEL
-- Install awesome WM
+# Environment
+- [Raspberry PI 3](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/)
+- OS: Raspbian (Debian 8 Jessie) Lite without PIXEL
+- WM: awesome
+- Development language: C/C++
 
 # Oct 27
 - Manually build driver, add module for 4.8.3.1-ARCH x64
