@@ -17,7 +17,7 @@
   + `/sbin/depmod`
   + `su -c "insmod ./mod_usbdpfp.ko`, verify with `lsmod | grep mod_usbdpfp`
 
-- Build and run some sample at `/opt/DigitalPersona/UareUSDK/Linux/Samples/*`
+- Build and run some samples at `/opt/DigitalPersona/UareUSDK/Linux/Samples/*`
   + UareUCaptureOnly: worked
   + UareUSample: worked
 
