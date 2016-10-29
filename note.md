@@ -1,8 +1,11 @@
 # Environment
-- [Raspberry PI 3](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/)
-- OS: Raspbian (Debian 8 Jessie) Lite without PIXEL
-- WM: awesome
-- Development language: C/C++
+- Target machine
+  + [Raspberry PI 3](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/)
+  + OS: Raspbian (Debian 8 Jessie) Lite without PIXEL
+- Development machine
+  + [Lenovo Thinkpad X220](https://support.lenovo.com/vn/en/documents/pd015812)
+  + OS: x86_64 Linux 4.8.3-1-ARCH
+  + Language: C/C++
 
 # Oct 27
 - Manually build driver, add module for 4.8.3.1-ARCH x64
