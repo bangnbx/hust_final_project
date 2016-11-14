@@ -21,3 +21,9 @@
   + UareUCaptureOnly: worked
   + UareUSample: worked
 
+- Build driver for 4.4.21-v7+ Raspberry Pi3 (armv7l)
+  + Update headers: download deb file and install it normally from [this source](https://www.niksula.hut.fi/~mhiienka/Rpi/linux-headers-rpi/)
+  + Run install script as root, it will build driver module for Pi3
+  + Install `fprint` library (include fprintd_demo)
+  + Using [USBdetach](https://github.com/Lefinnois/USBdetach) to detach UareU 4500 from kernel, in order to use without DP SDK
+
