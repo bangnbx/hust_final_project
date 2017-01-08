@@ -84,12 +84,16 @@ int get_data_from_username(char *username, struct fp_print_data **data)
             "project3", 0, NULL, 0) == NULL)
     {
       mysql_close(con);
-      exit(2);
+      return 2;
     }
-  if (mysql_query(con, "SELECT data FROM finger_data WHERE username='bangcht'"))
+  char query[300];
+  sprintf(query, "SELECT data FROM finger_data WHERE username=('%s')", username);
+  if (mysql_query(con, query))
+
+  //if (mysql_query(con, "SELECT data FROM finger_data WHERE username='bangcht'"))
     {
       mysql_close(con);
-      exit(2);
+      return 2;
     }
 
     MYSQL_RES *result = mysql_store_result(con);
@@ -97,35 +101,34 @@ int get_data_from_username(char *username, struct fp_print_data **data)
     if (result == NULL)
     {
       mysql_close(con);
-      exit(2);
+      return 2;
     }
 
+
     MYSQL_ROW row = mysql_fetch_row(result);
+
     unsigned long *lengths = mysql_fetch_lengths(result);
-    FILE* f = fopen("bangcht_new.bin", "wb");
-    fwrite(row[0], lengths[0], 1, f);
+//    FILE* f = fopen("bangcht_new.bin", "wb");
+//    fwrite(row[0], lengths[0], 1, f);
 
 //    for (size_t i = 0; i < lengths[0]; i++){
 //        fwrite(&row[0][i], sizeof(row[0][i]), 1, f);
 //    }
 
 
-    fclose(f);
+//    fclose(f);
     if (lengths == NULL) {
       mysql_close(con);
-      exit(2);
+      return 2;
     }
 //    struct fp_print_data **data_fingers;
 //    data_fingers = (fp_print_data**) malloc(1 * sizeof(fp_print_data*));
+
     *data = fp_print_data_from_data((unsigned char*)row[0], lengths[0]);
-    if (!*data) {
-      printf("data is null\n");
-    } else {
-      printf("data is NOT null\n");
-    }
+    return 0;
 }
 
-int check(struct fp_print_data *data) {
+int check(struct fp_print_data *data, QLabel *label) {
   int r = 1;
   struct fp_dscv_dev *ddev;
   struct fp_dscv_dev **discovered_devs;
@@ -161,11 +164,15 @@ int check(struct fp_print_data *data) {
   qDebug() << "Opened device\n\n";
   int res;
   res = fp_verify_finger(dev, data);
+  label->setText("Login failed");
+  label->setStyleSheet("QLabel {color : red; }");
   switch (res) {
   case FP_VERIFY_NO_MATCH:
     printf("FP_VERIFY_NO_MATCH\n");
     break;
   case FP_VERIFY_MATCH:
+    label->setText("Login sucessfully");
+    label->setStyleSheet("QLabel {color : blue; }");
     printf("FP_VERIFY_MATCH\n");
     break;
   case FP_VERIFY_RETRY:
@@ -181,7 +188,7 @@ int check(struct fp_print_data *data) {
     printf("FP_VERIFY_RETRY_REMOVE_FINGER\n");
     break;
   default:
-    printf("UNKNOWN\n");
+    printf("FAIL_DUE_TO_UNKNOWN_REASON\n");
     break;
   }
   out_close:
@@ -196,14 +203,21 @@ void VerifyWindow::on_verifyBtn_clicked()
   QString usernameQt = ui->lineEditUsername->text();
   QByteArray ba = usernameQt.toLatin1();
   char *username = ba.data();
+
+  QLabel *label = this->findChild<QLabel *>("verifyMsg");
+
   struct fp_print_data *data;
-  get_data_from_username(username, &data);
-  if (!data) {
-    printf("data is null\n");
+  int r = get_data_from_username(username, &data);
+  if (r == 0) {
+    label->setText("Please enroll your finger");
+    label->setStyleSheet("QLabel {color : blue; }");
+    qApp->processEvents();
+    check(data, label);
   } else {
-    printf("data is NOT null\n");
+    printf("Username not found!");
+    label->setText("Username not found");
+    label->setStyleSheet("QLabel {color : red; }");
   }
-  check(data);
 
   //scan_and_verify(username);
 }

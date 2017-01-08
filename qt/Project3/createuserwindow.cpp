@@ -26,27 +26,6 @@ int save_data_to_db(unsigned char *data, size_t data_size, char *username)
 {
   MYSQL con;
   init_mysql(&con);
-  // Show data
-//  if (mysql_query(&con, "SELECT * FROM test"))
-//  {
-//      return 2;
-//  }
-
-//  MYSQL_RES *result = mysql_store_result(&con);
-//  if (result == NULL)
-//  {
-//      return 2;
-//  }
-//  int num_fields = mysql_num_fields(result);
-//  MYSQL_ROW row;
-//  while ((row = mysql_fetch_row(result)))
-//  {
-//      for(int i = 0; i < num_fields; i++)
-//      {
-//          printf("%s ", row[i] ? row[i] : "NULL");
-//      }
-//          printf("\n");
-//  }
 
   // insert
   int escaped_size = 2 * data_size + 1;
@@ -63,10 +42,10 @@ int save_data_to_db(unsigned char *data, size_t data_size, char *username)
     printf("Something went wrong when INSERT");
     return 2;
   }
-  FILE* f = fopen("bangcht.bin", "wb");
-  for (size_t i = 0; i < data_size; i++)
-      fwrite(&data[i], sizeof(data[i]), 1, f);
-  fclose(f);
+//  FILE* f = fopen("bangcht.bin", "wb");
+//  for (size_t i = 0; i < data_size; i++)
+//      fwrite(&data[i], sizeof(data[i]), 1, f);
+//  fclose(f);
 
   mysql_close(&con);
   return 0;

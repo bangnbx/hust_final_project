@@ -16,6 +16,7 @@
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QDialogButtonBox>
 #include <QtWidgets/QHeaderView>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QPushButton>
 
@@ -27,6 +28,7 @@ public:
     QDialogButtonBox *buttonBox;
     QLineEdit *lineEditUsername;
     QPushButton *verifyBtn;
+    QLabel *verifyMsg;
 
     void setupUi(QDialog *VerifyWindow)
     {
@@ -44,6 +46,9 @@ public:
         verifyBtn = new QPushButton(VerifyWindow);
         verifyBtn->setObjectName(QStringLiteral("verifyBtn"));
         verifyBtn->setGeometry(QRect(210, 80, 80, 25));
+        verifyMsg = new QLabel(VerifyWindow);
+        verifyMsg->setObjectName(QStringLiteral("verifyMsg"));
+        verifyMsg->setGeometry(QRect(80, 110, 211, 17));
 
         retranslateUi(VerifyWindow);
         QObject::connect(buttonBox, SIGNAL(accepted()), VerifyWindow, SLOT(accept()));
@@ -56,6 +61,7 @@ public:
     {
         VerifyWindow->setWindowTitle(QApplication::translate("VerifyWindow", "Dialog", 0));
         verifyBtn->setText(QApplication::translate("VerifyWindow", "Verify", 0));
+        verifyMsg->setText(QString());
     } // retranslateUi
 
 };

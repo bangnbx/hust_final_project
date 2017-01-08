@@ -2,6 +2,8 @@
 #define VERIFYWINDOW_H
 
 #include <QDialog>
+#include <QLabel>
+#include <QApplication>
 
 namespace Ui {
 class VerifyWindow;

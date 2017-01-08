@@ -27,5 +27,5 @@ FORMS    += mainwindow.ui \
     createuserwindow.ui \
     verifywindow.ui
 
-LIBS    +=  -lfprint
-LIBS    +=  -lmysqlclient
+LIBS    +=  -lfprint \
+    -lmysqlclient
