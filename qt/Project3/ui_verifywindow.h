@@ -41,7 +41,7 @@ public:
         buttonBox->setObjectName(QStringLiteral("buttonBox"));
         buttonBox->setGeometry(QRect(30, 240, 341, 32));
         buttonBox->setOrientation(Qt::Horizontal);
-        buttonBox->setStandardButtons(QDialogButtonBox::Cancel|QDialogButtonBox::Ok);
+        buttonBox->setStandardButtons(QDialogButtonBox::Close);
         lineEditUsername = new QLineEdit(VerifyWindow);
         lineEditUsername->setObjectName(QStringLiteral("lineEditUsername"));
         lineEditUsername->setGeometry(QRect(80, 80, 113, 25));

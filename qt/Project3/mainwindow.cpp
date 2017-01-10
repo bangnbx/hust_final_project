@@ -6,7 +6,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    // connect(newUserBtn, SIGNAL(click()), this, SLOT(openCreateUserWindow()));
+    this->move(0, 0);
 }
 
 MainWindow::~MainWindow()
@@ -16,9 +16,9 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_newUserBtn_clicked()
 {
+    this->close();
     CreateUserWindow *nw = new CreateUserWindow();
     nw->show();
-    // this->hide();
 }
 
 void MainWindow::on_quitBtn_clicked()
@@ -28,12 +28,14 @@ void MainWindow::on_quitBtn_clicked()
 
 void MainWindow::on_verifyBtn_clicked()
 {
+    this->close();
     VerifyWindow *nw = new VerifyWindow();
     nw->show();
 }
 
 void MainWindow::on_identifyBtn_clicked()
 {
+    this->close();
     IdentifyWindow *nw = new IdentifyWindow();
     nw->show();
 }

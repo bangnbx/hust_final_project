@@ -2,6 +2,8 @@
 #define CREATEUSERWINDOW_H
 
 #include <QDialog>
+#include <mainwindow.h>
+#include <QAbstractButton>
 
 namespace Ui {
 class CreateUserWindow;
@@ -18,8 +20,12 @@ public:
 private slots:
     void on_enrollBtn_clicked();
 
+    void on_buttonBox_clicked(QAbstractButton *button);
+
+
 private:
     Ui::CreateUserWindow *ui;
+    int create_user(char *username);
 };
 
 #endif // CREATEUSERWINDOW_H

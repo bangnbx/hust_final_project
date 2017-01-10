@@ -5,6 +5,8 @@
 #include <QLabel>
 #include <QApplication>
 #include <QProgressBar>
+#include <mainwindow.h>
+#include <QAbstractButton>
 
 namespace Ui {
 class IdentifyWindow;
@@ -20,6 +22,9 @@ public:
 
 private slots:
   void on_identifyBtn_clicked();
+
+  void on_buttonBox_clicked(QAbstractButton *button);
+  int identify();
 
 private:
   Ui::IdentifyWindow *ui;

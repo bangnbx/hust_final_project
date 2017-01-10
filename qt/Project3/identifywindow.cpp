@@ -10,6 +10,7 @@ IdentifyWindow::IdentifyWindow(QWidget *parent) :
   ui(new Ui::IdentifyWindow)
 {
   ui->setupUi(this);
+  this->move(0, 0);
   ui->progressBar->hide();
   load_print_gallery();
 }
@@ -71,8 +72,9 @@ int IdentifyWindow::load_print_gallery() {
     print_gallery[index] = NULL; // it must be a NULL-terminated array
 }
 
-int identify() {
+int IdentifyWindow::identify() {
 
+    QLabel *label = this->findChild<QLabel *>("identifyMsg");
 
     // Open device
     int r = 1;
@@ -115,11 +117,14 @@ int identify() {
     r = fp_identify_finger(dev, print_gallery, &matched_index);
 
     if (r == 1) {
-      printf("User: %s\n", usernames[matched_index]);
+      QString str;
+      str.sprintf("Hello %s", usernames[matched_index]);
+      label->setText(str);
+      label->setStyleSheet("QLabel {color : blue; }");
     } else {
-      printf("Not found!\n");
+      label->setText("Not found!");
+      label->setStyleSheet("QLabel {color : red; }");
     }
-
 
     out_close:
       fp_dev_close(dev);
@@ -131,9 +136,18 @@ int identify() {
 void IdentifyWindow::on_identifyBtn_clicked()
 {
   QProgressBar *progressBar = ui->progressBar;
-  progressBar->hide();
-
   QLabel *label = this->findChild<QLabel *>("identifyMsg");
+  progressBar->show();
+  label->setText("Please enroll your finger!");
+  label->setStyleSheet("QLabel {color : blue; }");
+  qApp->processEvents();
   identify();
+  progressBar->hide();
+}
 
+void IdentifyWindow::on_buttonBox_clicked(QAbstractButton *button)
+{
+  this->close();
+  MainWindow *main = new MainWindow();
+  main->show();
 }

@@ -11,6 +11,7 @@ VerifyWindow::VerifyWindow(QWidget *parent) :
 {
   ui->setupUi(this);
   ui->progressBar->hide();
+  this->move(0, 0);
 }
 
 VerifyWindow::~VerifyWindow()
@@ -225,4 +226,11 @@ void VerifyWindow::on_verifyBtn_clicked()
     label->setText("Username not found");
     label->setStyleSheet("QLabel {color : red; }");
   }
+}
+
+void VerifyWindow::on_buttonBox_clicked(QAbstractButton *button)
+{
+  this->close();
+  MainWindow *main = new MainWindow();
+  main->show();
 }

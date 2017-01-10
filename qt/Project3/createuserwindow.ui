@@ -26,7 +26,7 @@
     <enum>Qt::Horizontal</enum>
    </property>
    <property name="standardButtons">
-    <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+    <set>QDialogButtonBox::Close</set>
    </property>
   </widget>
   <widget class="QLabel" name="label">
@@ -39,7 +39,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>username</string>
+    <string>Username</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="lineEditUsername">
@@ -63,6 +63,19 @@
    </property>
    <property name="text">
     <string>Enroll</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="newMsg">
+   <property name="geometry">
+    <rect>
+     <x>140</x>
+     <y>100</y>
+     <width>221</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
    </property>
   </widget>
  </widget>

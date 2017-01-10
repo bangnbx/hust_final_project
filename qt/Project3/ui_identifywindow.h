@@ -39,17 +39,17 @@ public:
         buttonBox->setObjectName(QStringLiteral("buttonBox"));
         buttonBox->setGeometry(QRect(30, 240, 341, 32));
         buttonBox->setOrientation(Qt::Horizontal);
-        buttonBox->setStandardButtons(QDialogButtonBox::Cancel|QDialogButtonBox::Ok);
+        buttonBox->setStandardButtons(QDialogButtonBox::Close);
         identifyBtn = new QPushButton(IdentifyWindow);
         identifyBtn->setObjectName(QStringLiteral("identifyBtn"));
-        identifyBtn->setGeometry(QRect(160, 90, 81, 25));
+        identifyBtn->setGeometry(QRect(100, 110, 81, 25));
         identifyMsg = new QLabel(IdentifyWindow);
         identifyMsg->setObjectName(QStringLiteral("identifyMsg"));
-        identifyMsg->setGeometry(QRect(90, 110, 211, 17));
+        identifyMsg->setGeometry(QRect(190, 110, 201, 21));
         progressBar = new QProgressBar(IdentifyWindow);
         progressBar->setObjectName(QStringLiteral("progressBar"));
         progressBar->setEnabled(true);
-        progressBar->setGeometry(QRect(90, 130, 211, 23));
+        progressBar->setGeometry(QRect(100, 170, 211, 23));
         progressBar->setMaximum(0);
         progressBar->setValue(-1);
 

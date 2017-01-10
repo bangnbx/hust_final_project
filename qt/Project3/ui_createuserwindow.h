@@ -29,6 +29,7 @@ public:
     QLabel *label;
     QLineEdit *lineEditUsername;
     QPushButton *enrollBtn;
+    QLabel *newMsg;
 
     void setupUi(QDialog *CreateUserWindow)
     {
@@ -39,7 +40,7 @@ public:
         buttonBox->setObjectName(QStringLiteral("buttonBox"));
         buttonBox->setGeometry(QRect(30, 240, 341, 32));
         buttonBox->setOrientation(Qt::Horizontal);
-        buttonBox->setStandardButtons(QDialogButtonBox::Cancel|QDialogButtonBox::Ok);
+        buttonBox->setStandardButtons(QDialogButtonBox::Close);
         label = new QLabel(CreateUserWindow);
         label->setObjectName(QStringLiteral("label"));
         label->setGeometry(QRect(70, 60, 61, 21));
@@ -49,6 +50,9 @@ public:
         enrollBtn = new QPushButton(CreateUserWindow);
         enrollBtn->setObjectName(QStringLiteral("enrollBtn"));
         enrollBtn->setGeometry(QRect(260, 60, 80, 25));
+        newMsg = new QLabel(CreateUserWindow);
+        newMsg->setObjectName(QStringLiteral("newMsg"));
+        newMsg->setGeometry(QRect(140, 100, 221, 31));
 
         retranslateUi(CreateUserWindow);
         QObject::connect(buttonBox, SIGNAL(accepted()), CreateUserWindow, SLOT(accept()));
@@ -60,8 +64,9 @@ public:
     void retranslateUi(QDialog *CreateUserWindow)
     {
         CreateUserWindow->setWindowTitle(QApplication::translate("CreateUserWindow", "Dialog", 0));
-        label->setText(QApplication::translate("CreateUserWindow", "username", 0));
+        label->setText(QApplication::translate("CreateUserWindow", "Username", 0));
         enrollBtn->setText(QApplication::translate("CreateUserWindow", "Enroll", 0));
+        newMsg->setText(QString());
     } // retranslateUi
 
 };

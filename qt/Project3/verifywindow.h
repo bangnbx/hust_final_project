@@ -5,6 +5,8 @@
 #include <QLabel>
 #include <QApplication>
 #include <QProgressBar>
+#include <mainwindow.h>
+#include <QAbstractButton>
 
 namespace Ui {
 class VerifyWindow;
@@ -20,6 +22,8 @@ public:
 
 private slots:
   void on_verifyBtn_clicked();
+
+  void on_buttonBox_clicked(QAbstractButton *button);
 
 private:
   Ui::VerifyWindow *ui;

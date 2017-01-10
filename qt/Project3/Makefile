@@ -473,21 +473,34 @@ compiler_moc_header_make_all: moc_mainwindow.cpp moc_createuserwindow.cpp moc_ve
 compiler_moc_header_clean:
 	-$(DEL_FILE) moc_mainwindow.cpp moc_createuserwindow.cpp moc_verifywindow.cpp moc_identifywindow.cpp
 moc_mainwindow.cpp: createuserwindow.h \
+		mainwindow.h \
 		verifywindow.h \
 		identifywindow.h \
 		mainwindow.h \
 		/usr/bin/moc
 	/usr/bin/moc $(DEFINES) -I/usr/lib/qt/mkspecs/linux-g++ -I/home/bangcht/projects/project3/qt/Project3 -I/usr/include/qt -I/usr/include/qt/QtWidgets -I/usr/include/qt/QtGui -I/usr/include/qt/QtCore -I/usr/include/c++/6.2.1 -I/usr/include/c++/6.2.1/x86_64-pc-linux-gnu -I/usr/include/c++/6.2.1/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/6.2.1/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/6.2.1/include-fixed -I/usr/include mainwindow.h -o moc_mainwindow.cpp
 
-moc_createuserwindow.cpp: createuserwindow.h \
+moc_createuserwindow.cpp: mainwindow.h \
+		createuserwindow.h \
+		verifywindow.h \
+		identifywindow.h \
+		createuserwindow.h \
 		/usr/bin/moc
 	/usr/bin/moc $(DEFINES) -I/usr/lib/qt/mkspecs/linux-g++ -I/home/bangcht/projects/project3/qt/Project3 -I/usr/include/qt -I/usr/include/qt/QtWidgets -I/usr/include/qt/QtGui -I/usr/include/qt/QtCore -I/usr/include/c++/6.2.1 -I/usr/include/c++/6.2.1/x86_64-pc-linux-gnu -I/usr/include/c++/6.2.1/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/6.2.1/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/6.2.1/include-fixed -I/usr/include createuserwindow.h -o moc_createuserwindow.cpp
 
-moc_verifywindow.cpp: verifywindow.h \
+moc_verifywindow.cpp: mainwindow.h \
+		createuserwindow.h \
+		verifywindow.h \
+		identifywindow.h \
+		verifywindow.h \
 		/usr/bin/moc
 	/usr/bin/moc $(DEFINES) -I/usr/lib/qt/mkspecs/linux-g++ -I/home/bangcht/projects/project3/qt/Project3 -I/usr/include/qt -I/usr/include/qt/QtWidgets -I/usr/include/qt/QtGui -I/usr/include/qt/QtCore -I/usr/include/c++/6.2.1 -I/usr/include/c++/6.2.1/x86_64-pc-linux-gnu -I/usr/include/c++/6.2.1/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/6.2.1/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/6.2.1/include-fixed -I/usr/include verifywindow.h -o moc_verifywindow.cpp
 
-moc_identifywindow.cpp: identifywindow.h \
+moc_identifywindow.cpp: mainwindow.h \
+		createuserwindow.h \
+		verifywindow.h \
+		identifywindow.h \
+		identifywindow.h \
 		/usr/bin/moc
 	/usr/bin/moc $(DEFINES) -I/usr/lib/qt/mkspecs/linux-g++ -I/home/bangcht/projects/project3/qt/Project3 -I/usr/include/qt -I/usr/include/qt/QtWidgets -I/usr/include/qt/QtGui -I/usr/include/qt/QtCore -I/usr/include/c++/6.2.1 -I/usr/include/c++/6.2.1/x86_64-pc-linux-gnu -I/usr/include/c++/6.2.1/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/6.2.1/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/6.2.1/include-fixed -I/usr/include identifywindow.h -o moc_identifywindow.cpp
 
@@ -536,11 +549,17 @@ mainwindow.o: mainwindow.cpp mainwindow.h \
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o mainwindow.cpp
 
 createuserwindow.o: createuserwindow.cpp createuserwindow.h \
+		mainwindow.h \
+		verifywindow.h \
+		identifywindow.h \
 		ui_createuserwindow.h \
 		finger.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o createuserwindow.o createuserwindow.cpp
 
 verifywindow.o: verifywindow.cpp verifywindow.h \
+		mainwindow.h \
+		createuserwindow.h \
+		identifywindow.h \
 		ui_verifywindow.h \
 		finger.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o verifywindow.o verifywindow.cpp
@@ -549,6 +568,9 @@ finger.o: finger.cpp finger.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o finger.o finger.cpp
 
 identifywindow.o: identifywindow.cpp identifywindow.h \
+		mainwindow.h \
+		createuserwindow.h \
+		verifywindow.h \
 		ui_identifywindow.h \
 		finger.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o identifywindow.o identifywindow.cpp

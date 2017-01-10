@@ -3,6 +3,7 @@
 #include <QtDebug>
 #include <mysql/mysql.h>
 #include "finger.h"
+#include <QLabel>
 
 
 int init_mysql(MYSQL *mysql) {
@@ -51,13 +52,16 @@ int save_data_to_db(unsigned char *data, size_t data_size, char *username)
   return 0;
 }
 
-int loof(char *username)
+int CreateUserWindow::create_user(char *username)
 {
   int r = 1;
   struct fp_dscv_dev *ddev;
   struct fp_dscv_dev **discovered_devs;
   struct fp_dev *dev;
   struct fp_print_data *data;
+
+  QLabel *label = this->findChild<QLabel *>("newMsg");
+
 
   r = fp_init();
   if (r < 0) {
@@ -87,8 +91,11 @@ int loof(char *username)
 
   qDebug() << "Opened device\n\n";
   data = enroll(dev);
-  if (!data)
+  if (!data) {
+    label->setText("Error! Please try again");
+    label->setStyleSheet("QLabel {color : red; }");
     goto out_close;
+  }
 
 
   unsigned char *ret;
@@ -99,8 +106,11 @@ int loof(char *username)
   save_data_to_db(ret, ret_size, username);
   free(ret);
   fp_print_data_free(data);
+  label->setText("Saved");
+  label->setStyleSheet("QLabel {color : blue; }");
 out_close:
   fp_dev_close(dev);
+
 out:
   fp_exit();
   return r;
@@ -111,6 +121,7 @@ CreateUserWindow::CreateUserWindow(QWidget *parent) :
     ui(new Ui::CreateUserWindow)
 {
     ui->setupUi(this);
+    this->move(0, 0);
 }
 
 CreateUserWindow::~CreateUserWindow()
@@ -121,7 +132,23 @@ CreateUserWindow::~CreateUserWindow()
 void CreateUserWindow::on_enrollBtn_clicked()
 {
   QString usernameQt = ui->lineEditUsername->text();
+  QLabel *label = this->findChild<QLabel *>("newMsg");
   QByteArray ba = usernameQt.toLatin1();
   char *username = ba.data();
-  loof(username);
+  if (strlen(username) == 0) {
+    label->setText("Invalid username");
+    label->setStyleSheet("QLabel {color : red; }");
+  } else {
+    label->setText("Enroll until successful (5 times)");
+    label->setStyleSheet("QLabel {color : blue; }");
+    qApp->processEvents();
+    create_user(username);
+  }
+}
+
+void CreateUserWindow::on_buttonBox_clicked(QAbstractButton *button)
+{
+  this->close();
+  MainWindow *main = new MainWindow();
+  main->show();
 }

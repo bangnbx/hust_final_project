@@ -1,16 +1,16 @@
 /****************************************************************************
-** Meta object code from reading C++ file 'verifywindow.h'
+** Meta object code from reading C++ file 'createuserwindow.h'
 **
 ** Created by: The Qt Meta Object Compiler version 67 (Qt 5.7.0)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
-#include "verifywindow.h"
+#include "../Project3/createuserwindow.h"
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
-#error "The header file 'verifywindow.h' doesn't include <QObject>."
+#error "The header file 'createuserwindow.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
 #error "This file was generated using the moc from 5.7.0. It"
 #error "cannot be used with the include files from this version of Qt."
@@ -18,32 +18,32 @@
 #endif
 
 QT_BEGIN_MOC_NAMESPACE
-struct qt_meta_stringdata_VerifyWindow_t {
+struct qt_meta_stringdata_CreateUserWindow_t {
     QByteArrayData data[6];
-    char stringdata0[80];
+    char stringdata0[84];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
-    qptrdiff(offsetof(qt_meta_stringdata_VerifyWindow_t, stringdata0) + ofs \
+    qptrdiff(offsetof(qt_meta_stringdata_CreateUserWindow_t, stringdata0) + ofs \
         - idx * sizeof(QByteArrayData)) \
     )
-static const qt_meta_stringdata_VerifyWindow_t qt_meta_stringdata_VerifyWindow = {
+static const qt_meta_stringdata_CreateUserWindow_t qt_meta_stringdata_CreateUserWindow = {
     {
-QT_MOC_LITERAL(0, 0, 12), // "VerifyWindow"
-QT_MOC_LITERAL(1, 13, 20), // "on_verifyBtn_clicked"
-QT_MOC_LITERAL(2, 34, 0), // ""
-QT_MOC_LITERAL(3, 35, 20), // "on_buttonBox_clicked"
-QT_MOC_LITERAL(4, 56, 16), // "QAbstractButton*"
-QT_MOC_LITERAL(5, 73, 6) // "button"
+QT_MOC_LITERAL(0, 0, 16), // "CreateUserWindow"
+QT_MOC_LITERAL(1, 17, 20), // "on_enrollBtn_clicked"
+QT_MOC_LITERAL(2, 38, 0), // ""
+QT_MOC_LITERAL(3, 39, 20), // "on_buttonBox_clicked"
+QT_MOC_LITERAL(4, 60, 16), // "QAbstractButton*"
+QT_MOC_LITERAL(5, 77, 6) // "button"
 
     },
-    "VerifyWindow\0on_verifyBtn_clicked\0\0"
-    "on_buttonBox_clicked\0QAbstractButton*\0"
+    "CreateUserWindow\0on_enrollBtn_clicked\0"
+    "\0on_buttonBox_clicked\0QAbstractButton*\0"
     "button"
 };
 #undef QT_MOC_LITERAL
 
-static const uint qt_meta_data_VerifyWindow[] = {
+static const uint qt_meta_data_CreateUserWindow[] = {
 
  // content:
        7,       // revision
@@ -67,13 +67,13 @@ static const uint qt_meta_data_VerifyWindow[] = {
        0        // eod
 };
 
-void VerifyWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+void CreateUserWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
-        VerifyWindow *_t = static_cast<VerifyWindow *>(_o);
+        CreateUserWindow *_t = static_cast<CreateUserWindow *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->on_verifyBtn_clicked(); break;
+        case 0: _t->on_enrollBtn_clicked(); break;
         case 1: _t->on_buttonBox_clicked((*reinterpret_cast< QAbstractButton*(*)>(_a[1]))); break;
         default: ;
         }
@@ -91,26 +91,26 @@ void VerifyWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id
     }
 }
 
-const QMetaObject VerifyWindow::staticMetaObject = {
-    { &QDialog::staticMetaObject, qt_meta_stringdata_VerifyWindow.data,
-      qt_meta_data_VerifyWindow,  qt_static_metacall, Q_NULLPTR, Q_NULLPTR}
+const QMetaObject CreateUserWindow::staticMetaObject = {
+    { &QDialog::staticMetaObject, qt_meta_stringdata_CreateUserWindow.data,
+      qt_meta_data_CreateUserWindow,  qt_static_metacall, Q_NULLPTR, Q_NULLPTR}
 };
 
 
-const QMetaObject *VerifyWindow::metaObject() const
+const QMetaObject *CreateUserWindow::metaObject() const
 {
     return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
 }
 
-void *VerifyWindow::qt_metacast(const char *_clname)
+void *CreateUserWindow::qt_metacast(const char *_clname)
 {
     if (!_clname) return Q_NULLPTR;
-    if (!strcmp(_clname, qt_meta_stringdata_VerifyWindow.stringdata0))
-        return static_cast<void*>(const_cast< VerifyWindow*>(this));
+    if (!strcmp(_clname, qt_meta_stringdata_CreateUserWindow.stringdata0))
+        return static_cast<void*>(const_cast< CreateUserWindow*>(this));
     return QDialog::qt_metacast(_clname);
 }
 
-int VerifyWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+int CreateUserWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
     _id = QDialog::qt_metacall(_c, _id, _a);
     if (_id < 0)

@@ -1,16 +1,16 @@
 /****************************************************************************
-** Meta object code from reading C++ file 'verifywindow.h'
+** Meta object code from reading C++ file 'identifywindow.h'
 **
 ** Created by: The Qt Meta Object Compiler version 67 (Qt 5.7.0)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
-#include "verifywindow.h"
+#include "../Project3/identifywindow.h"
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
-#error "The header file 'verifywindow.h' doesn't include <QObject>."
+#error "The header file 'identifywindow.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
 #error "This file was generated using the moc from 5.7.0. It"
 #error "cannot be used with the include files from this version of Qt."
@@ -18,38 +18,39 @@
 #endif
 
 QT_BEGIN_MOC_NAMESPACE
-struct qt_meta_stringdata_VerifyWindow_t {
-    QByteArrayData data[6];
-    char stringdata0[80];
+struct qt_meta_stringdata_IdentifyWindow_t {
+    QByteArrayData data[7];
+    char stringdata0[93];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
-    qptrdiff(offsetof(qt_meta_stringdata_VerifyWindow_t, stringdata0) + ofs \
+    qptrdiff(offsetof(qt_meta_stringdata_IdentifyWindow_t, stringdata0) + ofs \
         - idx * sizeof(QByteArrayData)) \
     )
-static const qt_meta_stringdata_VerifyWindow_t qt_meta_stringdata_VerifyWindow = {
+static const qt_meta_stringdata_IdentifyWindow_t qt_meta_stringdata_IdentifyWindow = {
     {
-QT_MOC_LITERAL(0, 0, 12), // "VerifyWindow"
-QT_MOC_LITERAL(1, 13, 20), // "on_verifyBtn_clicked"
-QT_MOC_LITERAL(2, 34, 0), // ""
-QT_MOC_LITERAL(3, 35, 20), // "on_buttonBox_clicked"
-QT_MOC_LITERAL(4, 56, 16), // "QAbstractButton*"
-QT_MOC_LITERAL(5, 73, 6) // "button"
+QT_MOC_LITERAL(0, 0, 14), // "IdentifyWindow"
+QT_MOC_LITERAL(1, 15, 22), // "on_identifyBtn_clicked"
+QT_MOC_LITERAL(2, 38, 0), // ""
+QT_MOC_LITERAL(3, 39, 20), // "on_buttonBox_clicked"
+QT_MOC_LITERAL(4, 60, 16), // "QAbstractButton*"
+QT_MOC_LITERAL(5, 77, 6), // "button"
+QT_MOC_LITERAL(6, 84, 8) // "identify"
 
     },
-    "VerifyWindow\0on_verifyBtn_clicked\0\0"
-    "on_buttonBox_clicked\0QAbstractButton*\0"
-    "button"
+    "IdentifyWindow\0on_identifyBtn_clicked\0"
+    "\0on_buttonBox_clicked\0QAbstractButton*\0"
+    "button\0identify"
 };
 #undef QT_MOC_LITERAL
 
-static const uint qt_meta_data_VerifyWindow[] = {
+static const uint qt_meta_data_IdentifyWindow[] = {
 
  // content:
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-       2,   14, // methods
+       3,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -57,24 +58,28 @@ static const uint qt_meta_data_VerifyWindow[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    0,   24,    2, 0x08 /* Private */,
-       3,    1,   25,    2, 0x08 /* Private */,
+       1,    0,   29,    2, 0x08 /* Private */,
+       3,    1,   30,    2, 0x08 /* Private */,
+       6,    0,   33,    2, 0x08 /* Private */,
 
  // slots: parameters
     QMetaType::Void,
     QMetaType::Void, 0x80000000 | 4,    5,
+    QMetaType::Int,
 
        0        // eod
 };
 
-void VerifyWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+void IdentifyWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
-        VerifyWindow *_t = static_cast<VerifyWindow *>(_o);
+        IdentifyWindow *_t = static_cast<IdentifyWindow *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->on_verifyBtn_clicked(); break;
+        case 0: _t->on_identifyBtn_clicked(); break;
         case 1: _t->on_buttonBox_clicked((*reinterpret_cast< QAbstractButton*(*)>(_a[1]))); break;
+        case 2: { int _r = _t->identify();
+            if (_a[0]) *reinterpret_cast< int*>(_a[0]) = _r; }  break;
         default: ;
         }
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
@@ -91,38 +96,38 @@ void VerifyWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id
     }
 }
 
-const QMetaObject VerifyWindow::staticMetaObject = {
-    { &QDialog::staticMetaObject, qt_meta_stringdata_VerifyWindow.data,
-      qt_meta_data_VerifyWindow,  qt_static_metacall, Q_NULLPTR, Q_NULLPTR}
+const QMetaObject IdentifyWindow::staticMetaObject = {
+    { &QDialog::staticMetaObject, qt_meta_stringdata_IdentifyWindow.data,
+      qt_meta_data_IdentifyWindow,  qt_static_metacall, Q_NULLPTR, Q_NULLPTR}
 };
 
 
-const QMetaObject *VerifyWindow::metaObject() const
+const QMetaObject *IdentifyWindow::metaObject() const
 {
     return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
 }
 
-void *VerifyWindow::qt_metacast(const char *_clname)
+void *IdentifyWindow::qt_metacast(const char *_clname)
 {
     if (!_clname) return Q_NULLPTR;
-    if (!strcmp(_clname, qt_meta_stringdata_VerifyWindow.stringdata0))
-        return static_cast<void*>(const_cast< VerifyWindow*>(this));
+    if (!strcmp(_clname, qt_meta_stringdata_IdentifyWindow.stringdata0))
+        return static_cast<void*>(const_cast< IdentifyWindow*>(this));
     return QDialog::qt_metacast(_clname);
 }
 
-int VerifyWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+int IdentifyWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
     _id = QDialog::qt_metacall(_c, _id, _a);
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 2)
+        if (_id < 3)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 2;
+        _id -= 3;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 2)
+        if (_id < 3)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 2;
+        _id -= 3;
     }
     return _id;
 }

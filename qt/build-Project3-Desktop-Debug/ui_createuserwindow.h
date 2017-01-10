@@ -39,7 +39,7 @@ public:
         buttonBox->setObjectName(QStringLiteral("buttonBox"));
         buttonBox->setGeometry(QRect(30, 240, 341, 32));
         buttonBox->setOrientation(Qt::Horizontal);
-        buttonBox->setStandardButtons(QDialogButtonBox::Cancel|QDialogButtonBox::Ok);
+        buttonBox->setStandardButtons(QDialogButtonBox::Close);
         label = new QLabel(CreateUserWindow);
         label->setObjectName(QStringLiteral("label"));
         label->setGeometry(QRect(70, 60, 61, 21));

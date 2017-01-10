@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_IdentifyWindow_t {
-    QByteArrayData data[3];
-    char stringdata0[39];
+    QByteArrayData data[7];
+    char stringdata0[93];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -31,11 +31,16 @@ static const qt_meta_stringdata_IdentifyWindow_t qt_meta_stringdata_IdentifyWind
     {
 QT_MOC_LITERAL(0, 0, 14), // "IdentifyWindow"
 QT_MOC_LITERAL(1, 15, 22), // "on_identifyBtn_clicked"
-QT_MOC_LITERAL(2, 38, 0) // ""
+QT_MOC_LITERAL(2, 38, 0), // ""
+QT_MOC_LITERAL(3, 39, 20), // "on_buttonBox_clicked"
+QT_MOC_LITERAL(4, 60, 16), // "QAbstractButton*"
+QT_MOC_LITERAL(5, 77, 6), // "button"
+QT_MOC_LITERAL(6, 84, 8) // "identify"
 
     },
     "IdentifyWindow\0on_identifyBtn_clicked\0"
-    ""
+    "\0on_buttonBox_clicked\0QAbstractButton*\0"
+    "button\0identify"
 };
 #undef QT_MOC_LITERAL
 
@@ -45,7 +50,7 @@ static const uint qt_meta_data_IdentifyWindow[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-       1,   14, // methods
+       3,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -53,10 +58,14 @@ static const uint qt_meta_data_IdentifyWindow[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    0,   19,    2, 0x08 /* Private */,
+       1,    0,   29,    2, 0x08 /* Private */,
+       3,    1,   30,    2, 0x08 /* Private */,
+       6,    0,   33,    2, 0x08 /* Private */,
 
  // slots: parameters
     QMetaType::Void,
+    QMetaType::Void, 0x80000000 | 4,    5,
+    QMetaType::Int,
 
        0        // eod
 };
@@ -68,10 +77,23 @@ void IdentifyWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _
         Q_UNUSED(_t)
         switch (_id) {
         case 0: _t->on_identifyBtn_clicked(); break;
+        case 1: _t->on_buttonBox_clicked((*reinterpret_cast< QAbstractButton*(*)>(_a[1]))); break;
+        case 2: { int _r = _t->identify();
+            if (_a[0]) *reinterpret_cast< int*>(_a[0]) = _r; }  break;
         default: ;
         }
+    } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        switch (_id) {
+        default: *reinterpret_cast<int*>(_a[0]) = -1; break;
+        case 1:
+            switch (*reinterpret_cast<int*>(_a[1])) {
+            default: *reinterpret_cast<int*>(_a[0]) = -1; break;
+            case 0:
+                *reinterpret_cast<int*>(_a[0]) = qRegisterMetaType< QAbstractButton* >(); break;
+            }
+            break;
+        }
     }
-    Q_UNUSED(_a);
 }
 
 const QMetaObject IdentifyWindow::staticMetaObject = {
@@ -99,13 +121,13 @@ int IdentifyWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 1)
+        if (_id < 3)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 1;
+        _id -= 3;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 1)
-            *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 1;
+        if (_id < 3)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 3;
     }
     return _id;
 }

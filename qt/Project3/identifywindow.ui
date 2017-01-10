@@ -26,14 +26,14 @@
     <enum>Qt::Horizontal</enum>
    </property>
    <property name="standardButtons">
-    <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+    <set>QDialogButtonBox::Close</set>
    </property>
   </widget>
   <widget class="QPushButton" name="identifyBtn">
    <property name="geometry">
     <rect>
-     <x>160</x>
-     <y>90</y>
+     <x>100</x>
+     <y>110</y>
      <width>81</width>
      <height>25</height>
     </rect>
@@ -45,10 +45,10 @@
   <widget class="QLabel" name="identifyMsg">
    <property name="geometry">
     <rect>
-     <x>90</x>
+     <x>190</x>
      <y>110</y>
-     <width>211</width>
-     <height>17</height>
+     <width>201</width>
+     <height>21</height>
     </rect>
    </property>
    <property name="text">
@@ -61,8 +61,8 @@
    </property>
    <property name="geometry">
     <rect>
-     <x>90</x>
-     <y>130</y>
+     <x>100</x>
+     <y>170</y>
      <width>211</width>
      <height>23</height>
     </rect>
