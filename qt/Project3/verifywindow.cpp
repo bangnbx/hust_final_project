@@ -10,6 +10,7 @@ VerifyWindow::VerifyWindow(QWidget *parent) :
   ui(new Ui::VerifyWindow)
 {
   ui->setupUi(this);
+  ui->progressBar->hide();
 }
 
 VerifyWindow::~VerifyWindow()
@@ -135,6 +136,7 @@ int check(struct fp_print_data *data, QLabel *label) {
   struct fp_dev *dev;
   struct fp_print_data *new_data;
 
+
   r = fp_init();
   if (r < 0) {
     qDebug() << "Failed to initialize libfprint\n";
@@ -200,6 +202,8 @@ int check(struct fp_print_data *data, QLabel *label) {
 
 void VerifyWindow::on_verifyBtn_clicked()
 {
+  QProgressBar *progressBar = ui->progressBar;
+  progressBar->hide();
   QString usernameQt = ui->lineEditUsername->text();
   QByteArray ba = usernameQt.toLatin1();
   char *username = ba.data();
@@ -211,13 +215,14 @@ void VerifyWindow::on_verifyBtn_clicked()
   if (r == 0) {
     label->setText("Please enroll your finger");
     label->setStyleSheet("QLabel {color : blue; }");
+    progressBar->show();
+
     qApp->processEvents();
     check(data, label);
+    progressBar->hide();
   } else {
     printf("Username not found!");
     label->setText("Username not found");
     label->setStyleSheet("QLabel {color : red; }");
   }
-
-  //scan_and_verify(username);
 }

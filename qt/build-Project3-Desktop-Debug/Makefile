@@ -52,17 +52,21 @@ SOURCES       = ../Project3/main.cpp \
 		../Project3/mainwindow.cpp \
 		../Project3/createuserwindow.cpp \
 		../Project3/verifywindow.cpp \
-		../Project3/finger.cpp moc_mainwindow.cpp \
+		../Project3/finger.cpp \
+		../Project3/identifywindow.cpp moc_mainwindow.cpp \
 		moc_createuserwindow.cpp \
-		moc_verifywindow.cpp
+		moc_verifywindow.cpp \
+		moc_identifywindow.cpp
 OBJECTS       = main.o \
 		mainwindow.o \
 		createuserwindow.o \
 		verifywindow.o \
 		finger.o \
+		identifywindow.o \
 		moc_mainwindow.o \
 		moc_createuserwindow.o \
-		moc_verifywindow.o
+		moc_verifywindow.o \
+		moc_identifywindow.o
 DIST          = /usr/lib/qt/mkspecs/features/spec_pre.prf \
 		/usr/lib/qt/mkspecs/common/unix.conf \
 		/usr/lib/qt/mkspecs/common/linux.conf \
@@ -177,11 +181,13 @@ DIST          = /usr/lib/qt/mkspecs/features/spec_pre.prf \
 		../Project3/Project3.pro ../Project3/mainwindow.h \
 		../Project3/createuserwindow.h \
 		../Project3/verifywindow.h \
-		../Project3/finger.h ../Project3/main.cpp \
+		../Project3/finger.h \
+		../Project3/identifywindow.h ../Project3/main.cpp \
 		../Project3/mainwindow.cpp \
 		../Project3/createuserwindow.cpp \
 		../Project3/verifywindow.cpp \
-		../Project3/finger.cpp
+		../Project3/finger.cpp \
+		../Project3/identifywindow.cpp
 QMAKE_TARGET  = Project3
 DESTDIR       = 
 TARGET        = Project3
@@ -190,7 +196,7 @@ TARGET        = Project3
 first: all
 ####### Build rules
 
-$(TARGET): ui_mainwindow.h ui_createuserwindow.h ui_verifywindow.h $(OBJECTS)  
+$(TARGET): ui_mainwindow.h ui_createuserwindow.h ui_verifywindow.h ui_identifywindow.h $(OBJECTS)  
 	$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
 
 Makefile: ../Project3/Project3.pro /usr/lib/qt/mkspecs/linux-g++/qmake.conf /usr/lib/qt/mkspecs/features/spec_pre.prf \
@@ -438,9 +444,9 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
-	$(COPY_FILE) --parents ../Project3/mainwindow.h ../Project3/createuserwindow.h ../Project3/verifywindow.h ../Project3/finger.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../Project3/main.cpp ../Project3/mainwindow.cpp ../Project3/createuserwindow.cpp ../Project3/verifywindow.cpp ../Project3/finger.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../Project3/mainwindow.ui ../Project3/createuserwindow.ui ../Project3/verifywindow.ui $(DISTDIR)/
+	$(COPY_FILE) --parents ../Project3/mainwindow.h ../Project3/createuserwindow.h ../Project3/verifywindow.h ../Project3/finger.h ../Project3/identifywindow.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../Project3/main.cpp ../Project3/mainwindow.cpp ../Project3/createuserwindow.cpp ../Project3/verifywindow.cpp ../Project3/finger.cpp ../Project3/identifywindow.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../Project3/mainwindow.ui ../Project3/createuserwindow.ui ../Project3/verifywindow.ui ../Project3/identifywindow.ui $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -466,11 +472,12 @@ benchmark: first
 
 compiler_rcc_make_all:
 compiler_rcc_clean:
-compiler_moc_header_make_all: moc_mainwindow.cpp moc_createuserwindow.cpp moc_verifywindow.cpp
+compiler_moc_header_make_all: moc_mainwindow.cpp moc_createuserwindow.cpp moc_verifywindow.cpp moc_identifywindow.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_mainwindow.cpp moc_createuserwindow.cpp moc_verifywindow.cpp
+	-$(DEL_FILE) moc_mainwindow.cpp moc_createuserwindow.cpp moc_verifywindow.cpp moc_identifywindow.cpp
 moc_mainwindow.cpp: ../Project3/createuserwindow.h \
 		../Project3/verifywindow.h \
+		../Project3/identifywindow.h \
 		../Project3/mainwindow.h \
 		/usr/bin/moc
 	/usr/bin/moc $(DEFINES) -I/usr/lib/qt/mkspecs/linux-g++ -I/home/bangcht/projects/project3/qt/Project3 -I/usr/include/qt -I/usr/include/qt/QtWidgets -I/usr/include/qt/QtGui -I/usr/include/qt/QtCore -I. -I/usr/include/c++/6.2.1 -I/usr/include/c++/6.2.1/x86_64-pc-linux-gnu -I/usr/include/c++/6.2.1/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/6.2.1/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/6.2.1/include-fixed -I/usr/include ../Project3/mainwindow.h -o moc_mainwindow.cpp
@@ -483,11 +490,15 @@ moc_verifywindow.cpp: ../Project3/verifywindow.h \
 		/usr/bin/moc
 	/usr/bin/moc $(DEFINES) -I/usr/lib/qt/mkspecs/linux-g++ -I/home/bangcht/projects/project3/qt/Project3 -I/usr/include/qt -I/usr/include/qt/QtWidgets -I/usr/include/qt/QtGui -I/usr/include/qt/QtCore -I. -I/usr/include/c++/6.2.1 -I/usr/include/c++/6.2.1/x86_64-pc-linux-gnu -I/usr/include/c++/6.2.1/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/6.2.1/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/6.2.1/include-fixed -I/usr/include ../Project3/verifywindow.h -o moc_verifywindow.cpp
 
+moc_identifywindow.cpp: ../Project3/identifywindow.h \
+		/usr/bin/moc
+	/usr/bin/moc $(DEFINES) -I/usr/lib/qt/mkspecs/linux-g++ -I/home/bangcht/projects/project3/qt/Project3 -I/usr/include/qt -I/usr/include/qt/QtWidgets -I/usr/include/qt/QtGui -I/usr/include/qt/QtCore -I. -I/usr/include/c++/6.2.1 -I/usr/include/c++/6.2.1/x86_64-pc-linux-gnu -I/usr/include/c++/6.2.1/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/6.2.1/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/6.2.1/include-fixed -I/usr/include ../Project3/identifywindow.h -o moc_identifywindow.cpp
+
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_mainwindow.h ui_createuserwindow.h ui_verifywindow.h
+compiler_uic_make_all: ui_mainwindow.h ui_createuserwindow.h ui_verifywindow.h ui_identifywindow.h
 compiler_uic_clean:
-	-$(DEL_FILE) ui_mainwindow.h ui_createuserwindow.h ui_verifywindow.h
+	-$(DEL_FILE) ui_mainwindow.h ui_createuserwindow.h ui_verifywindow.h ui_identifywindow.h
 ui_mainwindow.h: ../Project3/mainwindow.ui \
 		/usr/bin/uic
 	/usr/bin/uic ../Project3/mainwindow.ui -o ui_mainwindow.h
@@ -499,6 +510,10 @@ ui_createuserwindow.h: ../Project3/createuserwindow.ui \
 ui_verifywindow.h: ../Project3/verifywindow.ui \
 		/usr/bin/uic
 	/usr/bin/uic ../Project3/verifywindow.ui -o ui_verifywindow.h
+
+ui_identifywindow.h: ../Project3/identifywindow.ui \
+		/usr/bin/uic
+	/usr/bin/uic ../Project3/identifywindow.ui -o ui_identifywindow.h
 
 compiler_yacc_decl_make_all:
 compiler_yacc_decl_clean:
@@ -512,12 +527,14 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 
 main.o: ../Project3/main.cpp ../Project3/mainwindow.h \
 		../Project3/createuserwindow.h \
-		../Project3/verifywindow.h
+		../Project3/verifywindow.h \
+		../Project3/identifywindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../Project3/main.cpp
 
 mainwindow.o: ../Project3/mainwindow.cpp ../Project3/mainwindow.h \
 		../Project3/createuserwindow.h \
 		../Project3/verifywindow.h \
+		../Project3/identifywindow.h \
 		../Project3/ui_mainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../Project3/mainwindow.cpp
 
@@ -534,6 +551,11 @@ verifywindow.o: ../Project3/verifywindow.cpp ../Project3/verifywindow.h \
 finger.o: ../Project3/finger.cpp ../Project3/finger.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o finger.o ../Project3/finger.cpp
 
+identifywindow.o: ../Project3/identifywindow.cpp ../Project3/identifywindow.h \
+		../Project3/ui_identifywindow.h \
+		../Project3/finger.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o identifywindow.o ../Project3/identifywindow.cpp
+
 moc_mainwindow.o: moc_mainwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_mainwindow.o moc_mainwindow.cpp
 
@@ -542,6 +564,9 @@ moc_createuserwindow.o: moc_createuserwindow.cpp
 
 moc_verifywindow.o: moc_verifywindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_verifywindow.o moc_verifywindow.cpp
+
+moc_identifywindow.o: moc_identifywindow.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_identifywindow.o moc_identifywindow.cpp
 
 ####### Install
 

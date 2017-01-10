@@ -1,16 +1,16 @@
 /****************************************************************************
-** Meta object code from reading C++ file 'createuserwindow.h'
+** Meta object code from reading C++ file 'identifywindow.h'
 **
 ** Created by: The Qt Meta Object Compiler version 67 (Qt 5.7.0)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
-#include "../Project3/createuserwindow.h"
+#include "identifywindow.h"
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
-#error "The header file 'createuserwindow.h' doesn't include <QObject>."
+#error "The header file 'identifywindow.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
 #error "This file was generated using the moc from 5.7.0. It"
 #error "cannot be used with the include files from this version of Qt."
@@ -18,28 +18,28 @@
 #endif
 
 QT_BEGIN_MOC_NAMESPACE
-struct qt_meta_stringdata_CreateUserWindow_t {
+struct qt_meta_stringdata_IdentifyWindow_t {
     QByteArrayData data[3];
     char stringdata0[39];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
-    qptrdiff(offsetof(qt_meta_stringdata_CreateUserWindow_t, stringdata0) + ofs \
+    qptrdiff(offsetof(qt_meta_stringdata_IdentifyWindow_t, stringdata0) + ofs \
         - idx * sizeof(QByteArrayData)) \
     )
-static const qt_meta_stringdata_CreateUserWindow_t qt_meta_stringdata_CreateUserWindow = {
+static const qt_meta_stringdata_IdentifyWindow_t qt_meta_stringdata_IdentifyWindow = {
     {
-QT_MOC_LITERAL(0, 0, 16), // "CreateUserWindow"
-QT_MOC_LITERAL(1, 17, 20), // "on_enrollBtn_clicked"
+QT_MOC_LITERAL(0, 0, 14), // "IdentifyWindow"
+QT_MOC_LITERAL(1, 15, 22), // "on_identifyBtn_clicked"
 QT_MOC_LITERAL(2, 38, 0) // ""
 
     },
-    "CreateUserWindow\0on_enrollBtn_clicked\0"
+    "IdentifyWindow\0on_identifyBtn_clicked\0"
     ""
 };
 #undef QT_MOC_LITERAL
 
-static const uint qt_meta_data_CreateUserWindow[] = {
+static const uint qt_meta_data_IdentifyWindow[] = {
 
  // content:
        7,       // revision
@@ -61,39 +61,39 @@ static const uint qt_meta_data_CreateUserWindow[] = {
        0        // eod
 };
 
-void CreateUserWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+void IdentifyWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
-        CreateUserWindow *_t = static_cast<CreateUserWindow *>(_o);
+        IdentifyWindow *_t = static_cast<IdentifyWindow *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->on_enrollBtn_clicked(); break;
+        case 0: _t->on_identifyBtn_clicked(); break;
         default: ;
         }
     }
     Q_UNUSED(_a);
 }
 
-const QMetaObject CreateUserWindow::staticMetaObject = {
-    { &QDialog::staticMetaObject, qt_meta_stringdata_CreateUserWindow.data,
-      qt_meta_data_CreateUserWindow,  qt_static_metacall, Q_NULLPTR, Q_NULLPTR}
+const QMetaObject IdentifyWindow::staticMetaObject = {
+    { &QDialog::staticMetaObject, qt_meta_stringdata_IdentifyWindow.data,
+      qt_meta_data_IdentifyWindow,  qt_static_metacall, Q_NULLPTR, Q_NULLPTR}
 };
 
 
-const QMetaObject *CreateUserWindow::metaObject() const
+const QMetaObject *IdentifyWindow::metaObject() const
 {
     return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
 }
 
-void *CreateUserWindow::qt_metacast(const char *_clname)
+void *IdentifyWindow::qt_metacast(const char *_clname)
 {
     if (!_clname) return Q_NULLPTR;
-    if (!strcmp(_clname, qt_meta_stringdata_CreateUserWindow.stringdata0))
-        return static_cast<void*>(const_cast< CreateUserWindow*>(this));
+    if (!strcmp(_clname, qt_meta_stringdata_IdentifyWindow.stringdata0))
+        return static_cast<void*>(const_cast< IdentifyWindow*>(this));
     return QDialog::qt_metacast(_clname);
 }
 
-int CreateUserWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+int IdentifyWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
     _id = QDialog::qt_metacall(_c, _id, _a);
     if (_id < 0)

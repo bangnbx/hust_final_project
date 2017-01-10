@@ -30,6 +30,7 @@ public:
     QPushButton *newUserBtn;
     QPushButton *quitBtn;
     QPushButton *verifyBtn;
+    QPushButton *identifyBtn;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -50,6 +51,9 @@ public:
         verifyBtn = new QPushButton(centralWidget);
         verifyBtn->setObjectName(QStringLiteral("verifyBtn"));
         verifyBtn->setGeometry(QRect(100, 80, 80, 25));
+        identifyBtn = new QPushButton(centralWidget);
+        identifyBtn->setObjectName(QStringLiteral("identifyBtn"));
+        identifyBtn->setGeometry(QRect(100, 130, 80, 25));
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
@@ -73,6 +77,7 @@ public:
         newUserBtn->setText(QApplication::translate("MainWindow", "New User", 0));
         quitBtn->setText(QApplication::translate("MainWindow", "Quit", 0));
         verifyBtn->setText(QApplication::translate("MainWindow", "Verify", 0));
+        identifyBtn->setText(QApplication::translate("MainWindow", "Identify", 0));
     } // retranslateUi
 
 };

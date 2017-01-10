@@ -4,6 +4,7 @@
 #include <QDialog>
 #include <QLabel>
 #include <QApplication>
+#include <QProgressBar>
 
 namespace Ui {
 class VerifyWindow;

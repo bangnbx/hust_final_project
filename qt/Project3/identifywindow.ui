@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>VerifyWindow</class>
- <widget class="QDialog" name="VerifyWindow">
+ <class>IdentifyWindow</class>
+ <widget class="QDialog" name="IdentifyWindow">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -29,33 +29,23 @@
     <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEditUsername">
+  <widget class="QPushButton" name="identifyBtn">
    <property name="geometry">
     <rect>
-     <x>80</x>
-     <y>80</y>
-     <width>113</width>
-     <height>25</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="verifyBtn">
-   <property name="geometry">
-    <rect>
-     <x>210</x>
-     <y>80</y>
+     <x>160</x>
+     <y>90</y>
      <width>81</width>
      <height>25</height>
     </rect>
    </property>
    <property name="text">
-    <string>Verify</string>
+    <string>Identify</string>
    </property>
   </widget>
-  <widget class="QLabel" name="verifyMsg">
+  <widget class="QLabel" name="identifyMsg">
    <property name="geometry">
     <rect>
-     <x>80</x>
+     <x>90</x>
      <y>110</y>
      <width>211</width>
      <height>17</height>
@@ -71,7 +61,7 @@
    </property>
    <property name="geometry">
     <rect>
-     <x>80</x>
+     <x>90</x>
      <y>130</y>
      <width>211</width>
      <height>23</height>
@@ -90,7 +80,7 @@
   <connection>
    <sender>buttonBox</sender>
    <signal>accepted()</signal>
-   <receiver>VerifyWindow</receiver>
+   <receiver>IdentifyWindow</receiver>
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -106,7 +96,7 @@
   <connection>
    <sender>buttonBox</sender>
    <signal>rejected()</signal>
-   <receiver>VerifyWindow</receiver>
+   <receiver>IdentifyWindow</receiver>
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">

@@ -18,6 +18,7 @@
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
+#include <QtWidgets/QProgressBar>
 #include <QtWidgets/QPushButton>
 
 QT_BEGIN_NAMESPACE
@@ -29,6 +30,7 @@ public:
     QLineEdit *lineEditUsername;
     QPushButton *verifyBtn;
     QLabel *verifyMsg;
+    QProgressBar *progressBar;
 
     void setupUi(QDialog *VerifyWindow)
     {
@@ -45,10 +47,16 @@ public:
         lineEditUsername->setGeometry(QRect(80, 80, 113, 25));
         verifyBtn = new QPushButton(VerifyWindow);
         verifyBtn->setObjectName(QStringLiteral("verifyBtn"));
-        verifyBtn->setGeometry(QRect(210, 80, 80, 25));
+        verifyBtn->setGeometry(QRect(210, 80, 81, 25));
         verifyMsg = new QLabel(VerifyWindow);
         verifyMsg->setObjectName(QStringLiteral("verifyMsg"));
-        verifyMsg->setGeometry(QRect(80, 110, 54, 17));
+        verifyMsg->setGeometry(QRect(80, 110, 211, 17));
+        progressBar = new QProgressBar(VerifyWindow);
+        progressBar->setObjectName(QStringLiteral("progressBar"));
+        progressBar->setEnabled(true);
+        progressBar->setGeometry(QRect(80, 130, 211, 23));
+        progressBar->setMaximum(0);
+        progressBar->setValue(-1);
 
         retranslateUi(VerifyWindow);
         QObject::connect(buttonBox, SIGNAL(accepted()), VerifyWindow, SLOT(accept()));
@@ -61,7 +69,7 @@ public:
     {
         VerifyWindow->setWindowTitle(QApplication::translate("VerifyWindow", "Dialog", 0));
         verifyBtn->setText(QApplication::translate("VerifyWindow", "Verify", 0));
-        verifyMsg->setText(QApplication::translate("VerifyWindow", "Label", 0));
+        verifyMsg->setText(QString());
     } // retranslateUi
 
 };

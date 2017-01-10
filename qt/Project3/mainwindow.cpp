@@ -31,3 +31,9 @@ void MainWindow::on_verifyBtn_clicked()
     VerifyWindow *nw = new VerifyWindow();
     nw->show();
 }
+
+void MainWindow::on_identifyBtn_clicked()
+{
+    IdentifyWindow *nw = new IdentifyWindow();
+    nw->show();
+}

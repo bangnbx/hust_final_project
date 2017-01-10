@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <createuserwindow.h>
 #include <verifywindow.h>
+#include <identifywindow.h>
 
 namespace Ui {
 class MainWindow;
@@ -23,6 +24,8 @@ private slots:
     void on_quitBtn_clicked();
 
     void on_verifyBtn_clicked();
+
+    void on_identifyBtn_clicked();
 
 private:
     Ui::MainWindow *ui;

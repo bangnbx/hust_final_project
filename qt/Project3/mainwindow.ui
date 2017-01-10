@@ -53,6 +53,19 @@
      <string>Verify</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="identifyBtn">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>130</y>
+      <width>80</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Identify</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
