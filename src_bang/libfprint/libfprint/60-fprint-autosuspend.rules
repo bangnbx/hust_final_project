@@ -1,0 +1,162 @@
+# AuthenTec AES3500
+SUBSYSTEM=="usb", ATTRS{idVendor}=="08ff", ATTRS{idProduct}=="5731", ATTRS{dev}=="*", TEST=="power/control", ATTR{power/control}="auto"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="08ff", ATTRS{idProduct}=="5731", ENV{LIBFPRINT_DRIVER}="AuthenTec AES3500"
+
+# AuthenTec AES4000
+SUBSYSTEM=="usb", ATTRS{idVendor}=="08ff", ATTRS{idProduct}=="5501", ATTRS{dev}=="*", TEST=="power/control", ATTR{power/control}="auto"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="08ff", ATTRS{idProduct}=="5501", ENV{LIBFPRINT_DRIVER}="AuthenTec AES4000"
+
+# AuthenTec AES2501
+SUBSYSTEM=="usb", ATTRS{idVendor}=="08ff", ATTRS{idProduct}=="2500", ATTRS{dev}=="*", TEST=="power/control", ATTR{power/control}="auto"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="08ff", ATTRS{idProduct}=="2500", ENV{LIBFPRINT_DRIVER}="AuthenTec AES2501"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="08ff", ATTRS{idProduct}=="2580", ATTRS{dev}=="*", TEST=="power/control", ATTR{power/control}="auto"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="08ff", ATTRS{idProduct}=="2580", ENV{LIBFPRINT_DRIVER}="AuthenTec AES2501"
+
+# AuthenTec AES2550/AES2810
+SUBSYSTEM=="usb", ATTRS{idVendor}=="08ff", ATTRS{idProduct}=="2550", ATTRS{dev}=="*", TEST=="power/control", ATTR{power/control}="auto"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="08ff", ATTRS{idProduct}=="2550", ENV{LIBFPRINT_DRIVER}="AuthenTec AES2550/AES2810"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="08ff", ATTRS{idProduct}=="2810", ATTRS{dev}=="*", TEST=="power/control", ATTR{power/control}="auto"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="08ff", ATTRS{idProduct}=="2810", ENV{LIBFPRINT_DRIVER}="AuthenTec AES2550/AES2810"
+
+# Digital Persona U.are.U 4000/4000B/4500
+SUBSYSTEM=="usb", ATTRS{idVendor}=="045e", ATTRS{idProduct}=="00bc", ATTRS{dev}=="*", TEST=="power/control", ATTR{power/control}="auto"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="045e", ATTRS{idProduct}=="00bc", ENV{LIBFPRINT_DRIVER}="Digital Persona U.are.U 4000/4000B/4500"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="045e", ATTRS{idProduct}=="00bd", ATTRS{dev}=="*", TEST=="power/control", ATTR{power/control}="auto"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="045e", ATTRS{idProduct}=="00bd", ENV{LIBFPRINT_DRIVER}="Digital Persona U.are.U 4000/4000B/4500"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="045e", ATTRS{idProduct}=="00ca", ATTRS{dev}=="*", TEST=="power/control", ATTR{power/control}="auto"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="045e", ATTRS{idProduct}=="00ca", ENV{LIBFPRINT_DRIVER}="Digital Persona U.are.U 4000/4000B/4500"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="05ba", ATTRS{idProduct}=="0007", ATTRS{dev}=="*", TEST=="power/control", ATTR{power/control}="auto"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="05ba", ATTRS{idProduct}=="0007", ENV{LIBFPRINT_DRIVER}="Digital Persona U.are.U 4000/4000B/4500"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="05ba", ATTRS{idProduct}=="0008", ATTRS{dev}=="*", TEST=="power/control", ATTR{power/control}="auto"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="05ba", ATTRS{idProduct}=="0008", ENV{LIBFPRINT_DRIVER}="Digital Persona U.are.U 4000/4000B/4500"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="05ba", ATTRS{idProduct}=="000a", ATTRS{dev}=="*", TEST=="power/control", ATTR{power/control}="auto"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="05ba", ATTRS{idProduct}=="000a", ENV{LIBFPRINT_DRIVER}="Digital Persona U.are.U 4000/4000B/4500"
+
+# Veridicom 5thSense
+SUBSYSTEM=="usb", ATTRS{idVendor}=="061a", ATTRS{idProduct}=="0110", ATTRS{dev}=="*", TEST=="power/control", ATTR{power/control}="auto"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="061a", ATTRS{idProduct}=="0110", ENV{LIBFPRINT_DRIVER}="Veridicom 5thSense"
+
+# UPEK TouchStrip Sensor-Only
+SUBSYSTEM=="usb", ATTRS{idVendor}=="147e", ATTRS{idProduct}=="2016", ATTRS{dev}=="*", TEST=="power/control", ATTR{power/control}="auto"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="147e", ATTRS{idProduct}=="2016", ENV{LIBFPRINT_DRIVER}="UPEK TouchStrip Sensor-Only"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="147e", ATTRS{idProduct}=="1000", ATTRS{dev}=="*", TEST=="power/control", ATTR{power/control}="auto"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="147e", ATTRS{idProduct}=="1000", ENV{LIBFPRINT_DRIVER}="UPEK TouchStrip Sensor-Only"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="147e", ATTRS{idProduct}=="1001", ATTRS{dev}=="*", TEST=="power/control", ATTR{power/control}="auto"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="147e", ATTRS{idProduct}=="1001", ENV{LIBFPRINT_DRIVER}="UPEK TouchStrip Sensor-Only"
+
+# AuthenTec AES1610
+SUBSYSTEM=="usb", ATTRS{idVendor}=="08ff", ATTRS{idProduct}=="1600", ATTRS{dev}=="*", TEST=="power/control", ATTR{power/control}="auto"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="08ff", ATTRS{idProduct}=="1600", ENV{LIBFPRINT_DRIVER}="AuthenTec AES1610"
+
+# AuthenTec AES1660
+SUBSYSTEM=="usb", ATTRS{idVendor}=="08ff", ATTRS{idProduct}=="1660", ATTRS{dev}=="*", TEST=="power/control", ATTR{power/control}="auto"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="08ff", ATTRS{idProduct}=="1660", ENV{LIBFPRINT_DRIVER}="AuthenTec AES1660"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="08ff", ATTRS{idProduct}=="1680", ATTRS{dev}=="*", TEST=="power/control", ATTR{power/control}="auto"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="08ff", ATTRS{idProduct}=="1680", ENV{LIBFPRINT_DRIVER}="AuthenTec AES1660"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="08ff", ATTRS{idProduct}=="1681", ATTRS{dev}=="*", TEST=="power/control", ATTR{power/control}="auto"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="08ff", ATTRS{idProduct}=="1681", ENV{LIBFPRINT_DRIVER}="AuthenTec AES1660"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="08ff", ATTRS{idProduct}=="1682", ATTRS{dev}=="*", TEST=="power/control", ATTR{power/control}="auto"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="08ff", ATTRS{idProduct}=="1682", ENV{LIBFPRINT_DRIVER}="AuthenTec AES1660"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="08ff", ATTRS{idProduct}=="1683", ATTRS{dev}=="*", TEST=="power/control", ATTR{power/control}="auto"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="08ff", ATTRS{idProduct}=="1683", ENV{LIBFPRINT_DRIVER}="AuthenTec AES1660"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="08ff", ATTRS{idProduct}=="1684", ATTRS{dev}=="*", TEST=="power/control", ATTR{power/control}="auto"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="08ff", ATTRS{idProduct}=="1684", ENV{LIBFPRINT_DRIVER}="AuthenTec AES1660"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="08ff", ATTRS{idProduct}=="1685", ATTRS{dev}=="*", TEST=="power/control", ATTR{power/control}="auto"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="08ff", ATTRS{idProduct}=="1685", ENV{LIBFPRINT_DRIVER}="AuthenTec AES1660"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="08ff", ATTRS{idProduct}=="1686", ATTRS{dev}=="*", TEST=="power/control", ATTR{power/control}="auto"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="08ff", ATTRS{idProduct}=="1686", ENV{LIBFPRINT_DRIVER}="AuthenTec AES1660"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="08ff", ATTRS{idProduct}=="1687", ATTRS{dev}=="*", TEST=="power/control", ATTR{power/control}="auto"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="08ff", ATTRS{idProduct}=="1687", ENV{LIBFPRINT_DRIVER}="AuthenTec AES1660"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="08ff", ATTRS{idProduct}=="1688", ATTRS{dev}=="*", TEST=="power/control", ATTR{power/control}="auto"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="08ff", ATTRS{idProduct}=="1688", ENV{LIBFPRINT_DRIVER}="AuthenTec AES1660"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="08ff", ATTRS{idProduct}=="1689", ATTRS{dev}=="*", TEST=="power/control", ATTR{power/control}="auto"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="08ff", ATTRS{idProduct}=="1689", ENV{LIBFPRINT_DRIVER}="AuthenTec AES1660"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="08ff", ATTRS{idProduct}=="168a", ATTRS{dev}=="*", TEST=="power/control", ATTR{power/control}="auto"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="08ff", ATTRS{idProduct}=="168a", ENV{LIBFPRINT_DRIVER}="AuthenTec AES1660"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="08ff", ATTRS{idProduct}=="168b", ATTRS{dev}=="*", TEST=="power/control", ATTR{power/control}="auto"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="08ff", ATTRS{idProduct}=="168b", ENV{LIBFPRINT_DRIVER}="AuthenTec AES1660"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="08ff", ATTRS{idProduct}=="168c", ATTRS{dev}=="*", TEST=="power/control", ATTR{power/control}="auto"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="08ff", ATTRS{idProduct}=="168c", ENV{LIBFPRINT_DRIVER}="AuthenTec AES1660"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="08ff", ATTRS{idProduct}=="168d", ATTRS{dev}=="*", TEST=="power/control", ATTR{power/control}="auto"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="08ff", ATTRS{idProduct}=="168d", ENV{LIBFPRINT_DRIVER}="AuthenTec AES1660"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="08ff", ATTRS{idProduct}=="168e", ATTRS{dev}=="*", TEST=="power/control", ATTR{power/control}="auto"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="08ff", ATTRS{idProduct}=="168e", ENV{LIBFPRINT_DRIVER}="AuthenTec AES1660"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="08ff", ATTRS{idProduct}=="168f", ATTRS{dev}=="*", TEST=="power/control", ATTR{power/control}="auto"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="08ff", ATTRS{idProduct}=="168f", ENV{LIBFPRINT_DRIVER}="AuthenTec AES1660"
+
+# AuthenTec AES2660
+SUBSYSTEM=="usb", ATTRS{idVendor}=="08ff", ATTRS{idProduct}=="2660", ATTRS{dev}=="*", TEST=="power/control", ATTR{power/control}="auto"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="08ff", ATTRS{idProduct}=="2660", ENV{LIBFPRINT_DRIVER}="AuthenTec AES2660"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="08ff", ATTRS{idProduct}=="2680", ATTRS{dev}=="*", TEST=="power/control", ATTR{power/control}="auto"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="08ff", ATTRS{idProduct}=="2680", ENV{LIBFPRINT_DRIVER}="AuthenTec AES2660"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="08ff", ATTRS{idProduct}=="2681", ATTRS{dev}=="*", TEST=="power/control", ATTR{power/control}="auto"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="08ff", ATTRS{idProduct}=="2681", ENV{LIBFPRINT_DRIVER}="AuthenTec AES2660"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="08ff", ATTRS{idProduct}=="2682", ATTRS{dev}=="*", TEST=="power/control", ATTR{power/control}="auto"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="08ff", ATTRS{idProduct}=="2682", ENV{LIBFPRINT_DRIVER}="AuthenTec AES2660"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="08ff", ATTRS{idProduct}=="2683", ATTRS{dev}=="*", TEST=="power/control", ATTR{power/control}="auto"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="08ff", ATTRS{idProduct}=="2683", ENV{LIBFPRINT_DRIVER}="AuthenTec AES2660"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="08ff", ATTRS{idProduct}=="2684", ATTRS{dev}=="*", TEST=="power/control", ATTR{power/control}="auto"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="08ff", ATTRS{idProduct}=="2684", ENV{LIBFPRINT_DRIVER}="AuthenTec AES2660"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="08ff", ATTRS{idProduct}=="2685", ATTRS{dev}=="*", TEST=="power/control", ATTR{power/control}="auto"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="08ff", ATTRS{idProduct}=="2685", ENV{LIBFPRINT_DRIVER}="AuthenTec AES2660"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="08ff", ATTRS{idProduct}=="2686", ATTRS{dev}=="*", TEST=="power/control", ATTR{power/control}="auto"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="08ff", ATTRS{idProduct}=="2686", ENV{LIBFPRINT_DRIVER}="AuthenTec AES2660"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="08ff", ATTRS{idProduct}=="2687", ATTRS{dev}=="*", TEST=="power/control", ATTR{power/control}="auto"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="08ff", ATTRS{idProduct}=="2687", ENV{LIBFPRINT_DRIVER}="AuthenTec AES2660"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="08ff", ATTRS{idProduct}=="2688", ATTRS{dev}=="*", TEST=="power/control", ATTR{power/control}="auto"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="08ff", ATTRS{idProduct}=="2688", ENV{LIBFPRINT_DRIVER}="AuthenTec AES2660"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="08ff", ATTRS{idProduct}=="2689", ATTRS{dev}=="*", TEST=="power/control", ATTR{power/control}="auto"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="08ff", ATTRS{idProduct}=="2689", ENV{LIBFPRINT_DRIVER}="AuthenTec AES2660"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="08ff", ATTRS{idProduct}=="268a", ATTRS{dev}=="*", TEST=="power/control", ATTR{power/control}="auto"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="08ff", ATTRS{idProduct}=="268a", ENV{LIBFPRINT_DRIVER}="AuthenTec AES2660"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="08ff", ATTRS{idProduct}=="268b", ATTRS{dev}=="*", TEST=="power/control", ATTR{power/control}="auto"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="08ff", ATTRS{idProduct}=="268b", ENV{LIBFPRINT_DRIVER}="AuthenTec AES2660"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="08ff", ATTRS{idProduct}=="268c", ATTRS{dev}=="*", TEST=="power/control", ATTR{power/control}="auto"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="08ff", ATTRS{idProduct}=="268c", ENV{LIBFPRINT_DRIVER}="AuthenTec AES2660"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="08ff", ATTRS{idProduct}=="268d", ATTRS{dev}=="*", TEST=="power/control", ATTR{power/control}="auto"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="08ff", ATTRS{idProduct}=="268d", ENV{LIBFPRINT_DRIVER}="AuthenTec AES2660"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="08ff", ATTRS{idProduct}=="268e", ATTRS{dev}=="*", TEST=="power/control", ATTR{power/control}="auto"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="08ff", ATTRS{idProduct}=="268e", ENV{LIBFPRINT_DRIVER}="AuthenTec AES2660"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="08ff", ATTRS{idProduct}=="268f", ATTRS{dev}=="*", TEST=="power/control", ATTR{power/control}="auto"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="08ff", ATTRS{idProduct}=="268f", ENV{LIBFPRINT_DRIVER}="AuthenTec AES2660"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="08ff", ATTRS{idProduct}=="2691", ATTRS{dev}=="*", TEST=="power/control", ATTR{power/control}="auto"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="08ff", ATTRS{idProduct}=="2691", ENV{LIBFPRINT_DRIVER}="AuthenTec AES2660"
+
+# Validity VFS101
+SUBSYSTEM=="usb", ATTRS{idVendor}=="138a", ATTRS{idProduct}=="0001", ATTRS{dev}=="*", TEST=="power/control", ATTR{power/control}="auto"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="138a", ATTRS{idProduct}=="0001", ENV{LIBFPRINT_DRIVER}="Validity VFS101"
+
+# Validity VFS301
+SUBSYSTEM=="usb", ATTRS{idVendor}=="138a", ATTRS{idProduct}=="0005", ATTRS{dev}=="*", TEST=="power/control", ATTR{power/control}="auto"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="138a", ATTRS{idProduct}=="0005", ENV{LIBFPRINT_DRIVER}="Validity VFS301"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="138a", ATTRS{idProduct}=="0008", ATTRS{dev}=="*", TEST=="power/control", ATTR{power/control}="auto"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="138a", ATTRS{idProduct}=="0008", ENV{LIBFPRINT_DRIVER}="Validity VFS301"
+
+# Validity VFS5011
+SUBSYSTEM=="usb", ATTRS{idVendor}=="138a", ATTRS{idProduct}=="0010", ATTRS{dev}=="*", TEST=="power/control", ATTR{power/control}="auto"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="138a", ATTRS{idProduct}=="0010", ENV{LIBFPRINT_DRIVER}="Validity VFS5011"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="138a", ATTRS{idProduct}=="0011", ATTRS{dev}=="*", TEST=="power/control", ATTR{power/control}="auto"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="138a", ATTRS{idProduct}=="0011", ENV{LIBFPRINT_DRIVER}="Validity VFS5011"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="138a", ATTRS{idProduct}=="0017", ATTRS{dev}=="*", TEST=="power/control", ATTR{power/control}="auto"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="138a", ATTRS{idProduct}=="0017", ENV{LIBFPRINT_DRIVER}="Validity VFS5011"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="138a", ATTRS{idProduct}=="0018", ATTRS{dev}=="*", TEST=="power/control", ATTR{power/control}="auto"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="138a", ATTRS{idProduct}=="0018", ENV{LIBFPRINT_DRIVER}="Validity VFS5011"
+
+# UPEK TouchChip/Eikon Touch 300
+SUBSYSTEM=="usb", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="2015", ATTRS{dev}=="*", TEST=="power/control", ATTR{power/control}="auto"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="2015", ENV{LIBFPRINT_DRIVER}="UPEK TouchChip/Eikon Touch 300"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="147e", ATTRS{idProduct}=="3001", ATTRS{dev}=="*", TEST=="power/control", ATTR{power/control}="auto"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="147e", ATTRS{idProduct}=="3001", ENV{LIBFPRINT_DRIVER}="UPEK TouchChip/Eikon Touch 300"
+
+# Upek TouchChip Fingerprint Coprocessor
+SUBSYSTEM=="usb", ATTRS{idVendor}=="147e", ATTRS{idProduct}=="2020", ATTRS{dev}=="*", TEST=="power/control", ATTR{power/control}="auto"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="147e", ATTRS{idProduct}=="2020", ENV{LIBFPRINT_DRIVER}="Upek TouchChip Fingerprint Coprocessor"
+
+# EgisTec ES603
+SUBSYSTEM=="usb", ATTRS{idVendor}=="1c7a", ATTRS{idProduct}=="0603", ATTRS{dev}=="*", TEST=="power/control", ATTR{power/control}="auto"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="1c7a", ATTRS{idProduct}=="0603", ENV{LIBFPRINT_DRIVER}="EgisTec ES603"
+
+# Validity VFS0050
+SUBSYSTEM=="usb", ATTRS{idVendor}=="138a", ATTRS{idProduct}=="0050", ATTRS{dev}=="*", TEST=="power/control", ATTR{power/control}="auto"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="138a", ATTRS{idProduct}=="0050", ENV{LIBFPRINT_DRIVER}="Validity VFS0050"
+
