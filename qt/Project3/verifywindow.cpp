@@ -4,6 +4,17 @@
 #include <QtDebug>
 #include <mysql/mysql.h>
 #include "finger.h"
+#include "mysqldb.h"
+
+#include <QNetworkAccessManager>
+#include <QNetworkRequest>
+#include <QNetworkReply>
+#include <QUrl>
+#include <QUrlQuery>
+#include <QHttpMultiPart>
+#include <QHttpPart>
+#include <QFile>
+
 
 VerifyWindow::VerifyWindow(QWidget *parent) :
   QDialog(parent),
@@ -75,6 +86,7 @@ out:
 
 int get_data_from_username(char *username, struct fp_print_data **data)
 {
+  return 0;
   MYSQL *con = mysql_init(NULL);
   if (con == NULL)
     {
@@ -82,8 +94,9 @@ int get_data_from_username(char *username, struct fp_print_data **data)
         exit(1);
     }
 
-  if (mysql_real_connect(con, "localhost", "root", "rootpassword",
-            "project3", 0, NULL, 0) == NULL)
+
+  if (mysql_real_connect(con, "bangcht.me", "root", "bayogogo",
+            "project", 3306, NULL, 0) == NULL)
     {
       mysql_close(con);
       return 2;
@@ -130,13 +143,28 @@ int get_data_from_username(char *username, struct fp_print_data **data)
     return 0;
 }
 
+
 int check(struct fp_print_data *data, QLabel *label) {
+  qDebug() << "Start custom funtion\n";
+
   int r = 1;
   struct fp_dscv_dev *ddev;
   struct fp_dscv_dev **discovered_devs;
   struct fp_dev *dev;
   struct fp_print_data *new_data;
+  struct fp_img *img = NULL;
 
+  QNetworkAccessManager *networkManager = new QNetworkAccessManager();
+  QUrl url("http://localhost:8080/verify");
+  QNetworkRequest request(url);
+  QUrlQuery postData;
+  QByteArray postData1, ba;
+  QString tempQStr;
+  QHttpMultiPart *multiPart = new QHttpMultiPart(QHttpMultiPart::FormDataType);
+  QHttpPart dataPart;
+  QFile *sendFile;
+  int escaped_size = 2 * 2418 + 1;
+  char chunk[escaped_size];
 
   r = fp_init();
   if (r < 0) {
@@ -151,6 +179,7 @@ int check(struct fp_print_data *data, QLabel *label) {
     goto out;
   }
 
+
   ddev = discover_device(discovered_devs);
   if (!ddev) {
     qDebug() << "No devices detected.\n";
@@ -163,9 +192,90 @@ int check(struct fp_print_data *data, QLabel *label) {
     qDebug() << "Could not open device.\n";
     goto out;
   }
-
-  qDebug() << "Opened device\n\n";
   int res;
+  qDebug() << "Opened device\n\n";
+
+  // convert
+  unsigned char *enrolled_data, *new_data1;
+
+  // new_data = enroll(dev);
+  fp_dev_img_capture(dev, 0, &img);
+  fpi_img_to_print_data_bang(dev, img, &new_data);
+  // res = fpi_img_compare_print_data(data, new_data);
+  // fp_print_data_get_data(data, &enrolled_data);
+  fp_print_data_get_data(new_data, &new_data1);
+  // res = fpi_compare_data_bang(enrolled_data, new_data1);
+
+  // save new blob to file
+  FILE* pFile;
+  pFile = fopen("/home/bangcht/projects/project3/new_blob_local.bin", "wb");
+
+  if (pFile){
+      fwrite(new_data1, 2418, 1, pFile);
+      printf("Wrote to file!");
+  }
+  else{
+      printf("Something wrong writiyng to File.");
+  }
+  fclose(pFile);
+  char temp_data[2418];
+  for (int i = 0; i < 2418; i++) {
+    temp_data[i] = new_data1[i];
+  }
+
+  ba = QByteArray::fromRawData(temp_data, 2418);
+
+  // qDebug() << ba;
+
+  // qDebug() << "ba len: " << ba.length();
+
+
+  // saved
+
+  // test length
+
+  // sending to server
+  //
+
+  sendFile = new QFile("/home/bangcht/projects/project3/new_blob_local.bin");
+
+  dataPart.setHeader(QNetworkRequest::ContentTypeHeader, QVariant("application/octet-stream"));
+  // dataPart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant("form-data; name=\"file\"; filename=\"finger\""));
+  dataPart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant("form-data; name=\"finger\"; filename=\"finger.bin\""));
+  // dataPart.setBody(ba);
+  sendFile->open(QIODevice::ReadOnly);
+  dataPart.setBodyDevice(sendFile);
+  multiPart->append(dataPart);
+  networkManager->post(request, multiPart);
+
+
+
+
+  // mysql_escape_string(chunk, (const char *)new_data1, 2418);
+  // real_string(chunk, new_data1, 2418);
+
+  // postData.addQueryItem("finger", ba);
+  // qDebug() << postData.toString(QUrl::FullyEncoded).toUtf8();
+
+  // request.setHeader(QNetworkRequest::ContentTypeHeader, "application/x-www-form-urlencoded");
+  // request.setHeader(QNetworkRequest::ContentTypeHeader, "application/form-data");
+  // networkManager->post(request, ba);
+
+  qDebug() << "SENT\n";
+  // save_data_to_db(new_data1, 2418, "bang0");
+
+  // sent to server
+
+  unsigned char *ret;
+  size_t ret_size;
+  ret_size = fp_print_data_get_data(new_data, &ret);
+//  qDebug() << "New size: ";
+//  qDebug() << ret_size;
+//  qDebug() << "\n";
+  qDebug() << "Match score:" << res;
+  qDebug() << "End custom funtion\n";
+  goto out;
+
   res = fp_verify_finger(dev, data);
   label->setText("Login failed");
   label->setStyleSheet("QLabel {color : red; }");

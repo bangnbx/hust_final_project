@@ -4,56 +4,37 @@
 #include <mysql/mysql.h>
 #include "finger.h"
 #include <QLabel>
+#include "mysqldb.h"
+
+//#include <QNetworkAccessManager>
+//#include <QNetworkRequest>
+//#include <QNetworkReply>
+//#include <QUrl>
+//#include <QUrlQuery>
 
 
-int init_mysql(MYSQL *mysql) {
 
-  if (mysql_init(mysql) == NULL) {
-    printf("\nInitialization error\n");
-    return 2;
-  }
-  if (mysql_real_connect(mysql, "localhost", "root", "rootpassword",
-            "project3", 0, NULL, 0) == NULL)
-    {
-        fprintf(stderr, "%s\n", mysql_error(mysql));
-        mysql_close(mysql);
-        return 2;
-    }
-
-  return 0;
-}
-
-int save_data_to_db(unsigned char *data, size_t data_size, char *username)
+int testAPI(const char *data)
 {
-  MYSQL con;
-  init_mysql(&con);
+//  // call API here
+//  QNetworkAccessManager *networkManager = new QNetworkAccessManager();
+//  QUrl url("http://localhost:8080/user/new");
+//  QNetworkRequest request(url);
+//  QUrlQuery postData;
+//  postData.addQueryItem("finger", data);
+//  printf("%s\n", data);
+//  postData.addQueryItem("username", "bangcht");
 
-  // insert
-  int escaped_size = 2 * data_size + 1;
-  char chunk[escaped_size];
-  mysql_real_escape_string(&con, chunk, (const char*)data, data_size);
-  const char* query_template =  "INSERT INTO finger_data(username, data, data_size) VALUES ('%s', '%s', '%d')";
-  size_t template_len = strlen(query_template);
-  int query_buffer_len = template_len + escaped_size + strlen(username) + sizeof(data_size);
-  char query[query_buffer_len];
-  int query_len = snprintf(query, query_buffer_len, query_template, username, chunk, data_size);
-
-  if (mysql_real_query(&con, query, query_len))
-  {
-    printf("Something went wrong when INSERT");
-    return 2;
-  }
-//  FILE* f = fopen("bangcht.bin", "wb");
-//  for (size_t i = 0; i < data_size; i++)
-//      fwrite(&data[i], sizeof(data[i]), 1, f);
-//  fclose(f);
-
-  mysql_close(&con);
+//  request.setHeader(QNetworkRequest::ContentTypeHeader,
+//      "application/x-www-form-urlencoded");
+//  networkManager->post(request, postData.toString(QUrl::FullyEncoded).toUtf8());
   return 0;
 }
+
 
 int CreateUserWindow::create_user(char *username)
 {
+
   int r = 1;
   struct fp_dscv_dev *ddev;
   struct fp_dscv_dev **discovered_devs;
@@ -103,7 +84,11 @@ int CreateUserWindow::create_user(char *username)
   size_t ret_size;
   ret_size = fp_print_data_get_data(data, &ret);
 
+
   save_data_to_db(ret, ret_size, username);
+  qDebug() << "Enrolled size: ";
+  qDebug() << ret_size;
+  qDebug() << "\n";
   free(ret);
   fp_print_data_free(data);
   label->setText("Saved");

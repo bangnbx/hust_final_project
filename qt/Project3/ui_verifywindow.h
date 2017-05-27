@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'verifywindow.ui'
 **
-** Created by: Qt User Interface Compiler version 5.7.0
+** Created by: Qt User Interface Compiler version 5.8.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -67,8 +67,8 @@ public:
 
     void retranslateUi(QDialog *VerifyWindow)
     {
-        VerifyWindow->setWindowTitle(QApplication::translate("VerifyWindow", "Dialog", 0));
-        verifyBtn->setText(QApplication::translate("VerifyWindow", "Verify", 0));
+        VerifyWindow->setWindowTitle(QApplication::translate("VerifyWindow", "Dialog", Q_NULLPTR));
+        verifyBtn->setText(QApplication::translate("VerifyWindow", "Verify", Q_NULLPTR));
         verifyMsg->setText(QString());
     } // retranslateUi
 

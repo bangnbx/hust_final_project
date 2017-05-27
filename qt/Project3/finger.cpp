@@ -25,6 +25,11 @@ struct fp_print_data *enroll(struct fp_dev *dev) {
     printf("\nScan your finger now.\n");
 
     r = fp_enroll_finger_img(dev, &enrolled_print, &img);
+    fp_img_save_to_file(img, "/home/bangcht/tmp/original.pgm");
+    fp_img_standardize(img);
+    struct fp_img *new_img = NULL;
+    new_img = fp_img_binarize(img);
+    fp_img_save_to_file(new_img, "/home/bangcht/tmp/enhanced.pgm");
 
 //    if (img) {
 //      fp_img_save_to_file(img, "enrolled.pgm");

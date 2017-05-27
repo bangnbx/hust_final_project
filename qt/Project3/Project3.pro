@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui network
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -17,18 +17,21 @@ SOURCES += main.cpp\
     createuserwindow.cpp \
     verifywindow.cpp \
     finger.cpp \
-    identifywindow.cpp
+    identifywindow.cpp \
+    mysqldb.cpp
 
 HEADERS  += mainwindow.h \
     createuserwindow.h \
     verifywindow.h \
     finger.h \
-    identifywindow.h
+    identifywindow.h \
+    mysqldb.h
 
 FORMS    += mainwindow.ui \
     createuserwindow.ui \
     verifywindow.ui \
     identifywindow.ui
+
 
 LIBS    +=  -lfprint \
     -lmysqlclient

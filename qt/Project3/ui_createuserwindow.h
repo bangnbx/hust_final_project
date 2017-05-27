@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'createuserwindow.ui'
 **
-** Created by: Qt User Interface Compiler version 5.7.0
+** Created by: Qt User Interface Compiler version 5.8.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -63,9 +63,9 @@ public:
 
     void retranslateUi(QDialog *CreateUserWindow)
     {
-        CreateUserWindow->setWindowTitle(QApplication::translate("CreateUserWindow", "Dialog", 0));
-        label->setText(QApplication::translate("CreateUserWindow", "Username", 0));
-        enrollBtn->setText(QApplication::translate("CreateUserWindow", "Enroll", 0));
+        CreateUserWindow->setWindowTitle(QApplication::translate("CreateUserWindow", "Dialog", Q_NULLPTR));
+        label->setText(QApplication::translate("CreateUserWindow", "Username", Q_NULLPTR));
+        enrollBtn->setText(QApplication::translate("CreateUserWindow", "Enroll", Q_NULLPTR));
         newMsg->setText(QString());
     } // retranslateUi
 

@@ -31,8 +31,8 @@ int IdentifyWindow::load_print_gallery() {
         exit(1);
     }
 
-  if (mysql_real_connect(con, "localhost", "root", "rootpassword",
-            "project3", 0, NULL, 0) == NULL)
+  if (mysql_real_connect(con, "bangcht.me", "root", "bayogogo",
+            "project", 3306, NULL, 0) == NULL)
     {
       mysql_close(con);
       return 2;

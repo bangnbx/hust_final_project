@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'identifywindow.ui'
 **
-** Created by: Qt User Interface Compiler version 5.7.0
+** Created by: Qt User Interface Compiler version 5.8.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -62,8 +62,8 @@ public:
 
     void retranslateUi(QDialog *IdentifyWindow)
     {
-        IdentifyWindow->setWindowTitle(QApplication::translate("IdentifyWindow", "Dialog", 0));
-        identifyBtn->setText(QApplication::translate("IdentifyWindow", "Identify", 0));
+        IdentifyWindow->setWindowTitle(QApplication::translate("IdentifyWindow", "Dialog", Q_NULLPTR));
+        identifyBtn->setText(QApplication::translate("IdentifyWindow", "Identify", Q_NULLPTR));
         identifyMsg->setText(QString());
     } // retranslateUi
 
