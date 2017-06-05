@@ -1,10 +1,10 @@
-#include "createuserwindow.h"
 #include "ui_createuserwindow.h"
 #include <QtDebug>
 #include <mysql/mysql.h>
 #include "finger.h"
 #include <QLabel>
 #include "mysqldb.h"
+#include "createuserwindow.h"
 
 //#include <QNetworkAccessManager>
 //#include <QNetworkRequest>
@@ -16,6 +16,12 @@
 
 int testAPI(const char *data)
 {
+  int r = 0;
+  fp_set_debug(3);
+  r = fpi_test_bang("/home/bangcht/projects/DB_finger/101_1.tif", "/home/bangcht/projects/DB_finger/101_2.tif");
+  // r = fpi_test_bang("\/home\/bangcht\/projects\/DB_finger\/101_1.tif", "\/home\/bangcht\/projects\/DB_finger\/101_2.tif");
+  // r = fpi_test_bang("a", "b");
+  qDebug() << "Score:" << r;
 //  // call API here
 //  QNetworkAccessManager *networkManager = new QNetworkAccessManager();
 //  QUrl url("http://localhost:8080/user/new");
@@ -34,7 +40,6 @@ int testAPI(const char *data)
 
 int CreateUserWindow::create_user(char *username)
 {
-
   int r = 1;
   struct fp_dscv_dev *ddev;
   struct fp_dscv_dev **discovered_devs;
@@ -116,6 +121,8 @@ CreateUserWindow::~CreateUserWindow()
 
 void CreateUserWindow::on_enrollBtn_clicked()
 {
+  testAPI("a");
+  return;
   QString usernameQt = ui->lineEditUsername->text();
   QLabel *label = this->findChild<QLabel *>("newMsg");
   QByteArray ba = usernameQt.toLatin1();

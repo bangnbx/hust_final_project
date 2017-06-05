@@ -31,32 +31,45 @@ public:
     QPushButton *verifyBtn;
     QLabel *verifyMsg;
     QProgressBar *progressBar;
+    QLabel *label;
+    QLabel *label_2;
+    QLineEdit *lineEdit;
 
     void setupUi(QDialog *VerifyWindow)
     {
         if (VerifyWindow->objectName().isEmpty())
             VerifyWindow->setObjectName(QStringLiteral("VerifyWindow"));
-        VerifyWindow->resize(400, 300);
+        VerifyWindow->resize(544, 324);
         buttonBox = new QDialogButtonBox(VerifyWindow);
         buttonBox->setObjectName(QStringLiteral("buttonBox"));
-        buttonBox->setGeometry(QRect(30, 240, 341, 32));
+        buttonBox->setGeometry(QRect(150, 280, 341, 32));
         buttonBox->setOrientation(Qt::Horizontal);
         buttonBox->setStandardButtons(QDialogButtonBox::Close);
         lineEditUsername = new QLineEdit(VerifyWindow);
         lineEditUsername->setObjectName(QStringLiteral("lineEditUsername"));
-        lineEditUsername->setGeometry(QRect(80, 80, 113, 25));
+        lineEditUsername->setGeometry(QRect(160, 44, 231, 51));
         verifyBtn = new QPushButton(VerifyWindow);
         verifyBtn->setObjectName(QStringLiteral("verifyBtn"));
-        verifyBtn->setGeometry(QRect(210, 80, 81, 25));
+        verifyBtn->setGeometry(QRect(160, 160, 231, 41));
         verifyMsg = new QLabel(VerifyWindow);
         verifyMsg->setObjectName(QStringLiteral("verifyMsg"));
-        verifyMsg->setGeometry(QRect(80, 110, 211, 17));
+        verifyMsg->setGeometry(QRect(170, 210, 211, 41));
         progressBar = new QProgressBar(VerifyWindow);
         progressBar->setObjectName(QStringLiteral("progressBar"));
         progressBar->setEnabled(true);
-        progressBar->setGeometry(QRect(80, 130, 211, 23));
+        progressBar->setGeometry(QRect(170, 250, 211, 23));
         progressBar->setMaximum(0);
         progressBar->setValue(-1);
+        label = new QLabel(VerifyWindow);
+        label->setObjectName(QStringLiteral("label"));
+        label->setGeometry(QRect(80, 70, 59, 14));
+        label_2 = new QLabel(VerifyWindow);
+        label_2->setObjectName(QStringLiteral("label_2"));
+        label_2->setGeometry(QRect(80, 120, 59, 14));
+        lineEdit = new QLineEdit(VerifyWindow);
+        lineEdit->setObjectName(QStringLiteral("lineEdit"));
+        lineEdit->setGeometry(QRect(160, 100, 231, 41));
+        lineEdit->setInputMethodHints(Qt::ImhHiddenText);
 
         retranslateUi(VerifyWindow);
         QObject::connect(buttonBox, SIGNAL(accepted()), VerifyWindow, SLOT(accept()));
@@ -68,8 +81,10 @@ public:
     void retranslateUi(QDialog *VerifyWindow)
     {
         VerifyWindow->setWindowTitle(QApplication::translate("VerifyWindow", "Dialog", Q_NULLPTR));
-        verifyBtn->setText(QApplication::translate("VerifyWindow", "Verify", Q_NULLPTR));
+        verifyBtn->setText(QApplication::translate("VerifyWindow", "Login", Q_NULLPTR));
         verifyMsg->setText(QString());
+        label->setText(QApplication::translate("VerifyWindow", "ID", Q_NULLPTR));
+        label_2->setText(QApplication::translate("VerifyWindow", "Password", Q_NULLPTR));
     } // retranslateUi
 
 };

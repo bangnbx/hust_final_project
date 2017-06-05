@@ -1,9 +1,10 @@
-#include "identifywindow.h"
+
 #include "ui_identifywindow.h"
 
 #include <QtDebug>
 #include <mysql/mysql.h>
 #include "finger.h"
+#include "identifywindow.h"
 
 IdentifyWindow::IdentifyWindow(QWidget *parent) :
   QDialog(parent),

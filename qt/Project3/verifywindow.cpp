@@ -1,4 +1,4 @@
-#include "verifywindow.h"
+
 #include "ui_verifywindow.h"
 
 #include <QtDebug>
@@ -14,6 +14,7 @@
 #include <QHttpMultiPart>
 #include <QHttpPart>
 #include <QFile>
+#include "verifywindow.h"
 
 
 VerifyWindow::VerifyWindow(QWidget *parent) :

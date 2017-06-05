@@ -378,6 +378,42 @@ API_EXPORTED int fpi_img_to_print_data_bang(struct fp_dev *dev, struct fp_img *i
 	return 0;
 }
 
+static int load_from_file(char *path, struct fp_print_data **data)
+{
+	gsize length;
+	gchar *contents;
+	GError *err = NULL;
+	struct fp_print_data *fdata;
+
+	fp_dbg("from %s", path);
+	g_file_get_contents(path, &contents, &length, &err);
+	if (err) {
+		int r = err->code;
+		fp_err("%s load failed: %s", path, err->message);
+		g_error_free(err);
+		/* FIXME interpret more error codes */
+		if (r == G_FILE_ERROR_NOENT)
+			return -ENOENT;
+		else
+			return r;
+	}
+
+	fdata = fp_print_data_from_data(contents, length);
+	g_free(contents);
+	if (!fdata)
+		return -EIO;
+	*data = fdata;
+	return 0;
+}
+
+API_EXPORTED int fpi_test_bang(const char *path1, const char *path2) {
+  struct fp_print_data *enrolled_print;
+  struct fp_print_data *new_print;
+  load_from_file(path1, &enrolled_print);
+  load_from_file(path2, &new_print);
+  return fpi_img_compare_print_data(enrolled_print, new_print);
+}
+
 API_EXPORTED int fpi_compare_data_bang(unsigned char *enrolled_data, unsigned char *new_data) {
   struct fp_print_data *enrolled_print;
   struct fp_print_data *new_print;
@@ -397,17 +433,17 @@ API_EXPORTED int fpi_img_compare_print_data(struct fp_print_data *enrolled_print
 	struct fp_print_data_item *data_item;
 	GSList *list_item;
 
-	if (enrolled_print->type != PRINT_DATA_NBIS_MINUTIAE ||
-	     new_print->type != PRINT_DATA_NBIS_MINUTIAE) {
+  if (enrolled_print->type != PRINT_DATA_NBIS_MINUTIAE ||
+       new_print->type != PRINT_DATA_NBIS_MINUTIAE) {
     fp_err("%d", new_print->type);
-		fp_err("invalid print format");
-		return -EINVAL;
-	}
+    fp_err("invalid print format");
+    return -EINVAL;
+  }
 
-	if (g_slist_length(new_print->prints) != 1) {
-		fp_err("new_print contains more than one sample, is it enrolled print?");
-		return -EINVAL;
-	}
+  if (g_slist_length(new_print->prints) != 1) {
+    fp_err("new_print contains more than one sample, is it enrolled print?");
+    return -EINVAL;
+  }
 
 	data_item = new_print->prints->data;
 	pstruct = (struct xyt_struct *)data_item->data;

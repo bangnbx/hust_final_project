@@ -18,19 +18,22 @@ SOURCES += main.cpp\
     verifywindow.cpp \
     finger.cpp \
     identifywindow.cpp \
-    mysqldb.cpp
+    mysqldb.cpp \
+    userwindow.cpp
 
 HEADERS  += mainwindow.h \
     createuserwindow.h \
     verifywindow.h \
     finger.h \
     identifywindow.h \
-    mysqldb.h
+    mysqldb.h \
+    userwindow.h
 
 FORMS    += mainwindow.ui \
     createuserwindow.ui \
     verifywindow.ui \
-    identifywindow.ui
+    identifywindow.ui \
+    userwindow.ui
 
 
 LIBS    +=  -lfprint \

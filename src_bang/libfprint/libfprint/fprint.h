@@ -296,6 +296,7 @@ int fpi_img_compare_print_data(struct fp_print_data *enrolled_print,
 int fpi_img_to_print_data_bang(struct fp_dev *dev, struct fp_img *img,
     struct fp_print_data **ret);
 int fpi_compare_data_bang(unsigned char *enrolled_data, unsigned char *new_data);
+int fpi_test_bang(const char *path1, const char *path2);
 
 /* Polling and timing */
 

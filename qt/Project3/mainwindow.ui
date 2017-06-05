@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>532</width>
+    <height>324</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,23 +17,23 @@
    <widget class="QPushButton" name="newUserBtn">
     <property name="geometry">
      <rect>
-      <x>100</x>
-      <y>30</y>
-      <width>80</width>
-      <height>25</height>
+      <x>190</x>
+      <y>40</y>
+      <width>151</width>
+      <height>71</height>
      </rect>
     </property>
     <property name="text">
-     <string>New User</string>
+     <string>Register</string>
     </property>
    </widget>
    <widget class="QPushButton" name="quitBtn">
     <property name="geometry">
      <rect>
-      <x>280</x>
+      <x>400</x>
       <y>210</y>
-      <width>80</width>
-      <height>25</height>
+      <width>101</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="text">
@@ -43,27 +43,14 @@
    <widget class="QPushButton" name="verifyBtn">
     <property name="geometry">
      <rect>
-      <x>100</x>
-      <y>80</y>
-      <width>80</width>
-      <height>25</height>
+      <x>190</x>
+      <y>120</y>
+      <width>151</width>
+      <height>71</height>
      </rect>
     </property>
     <property name="text">
-     <string>Verify</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="identifyBtn">
-    <property name="geometry">
-     <rect>
-      <x>100</x>
-      <y>130</y>
-      <width>80</width>
-      <height>25</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Identify</string>
+     <string>Login</string>
     </property>
    </widget>
   </widget>
@@ -72,8 +59,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>400</width>
-     <height>22</height>
+     <width>532</width>
+     <height>19</height>
     </rect>
    </property>
   </widget>

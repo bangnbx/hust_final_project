@@ -1,5 +1,6 @@
-#include "mainwindow.h"
+
 #include "ui_mainwindow.h"
+#include "mainwindow.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -24,6 +25,8 @@ void MainWindow::on_newUserBtn_clicked()
 void MainWindow::on_quitBtn_clicked()
 {
     this->close();
+    UserWindow *nw = new UserWindow();
+    nw->show();
 }
 
 void MainWindow::on_verifyBtn_clicked()
@@ -33,9 +36,9 @@ void MainWindow::on_verifyBtn_clicked()
     nw->show();
 }
 
-void MainWindow::on_identifyBtn_clicked()
-{
-    this->close();
-    IdentifyWindow *nw = new IdentifyWindow();
-    nw->show();
-}
+//void MainWindow::on_identifyBtn_clicked()
+//{
+//    this->close();
+//    IdentifyWindow *nw = new IdentifyWindow();
+//    nw->show();
+//}

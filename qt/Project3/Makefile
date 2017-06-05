@@ -54,10 +54,12 @@ SOURCES       = main.cpp \
 		verifywindow.cpp \
 		finger.cpp \
 		identifywindow.cpp \
-		mysqldb.cpp moc_mainwindow.cpp \
+		mysqldb.cpp \
+		userwindow.cpp moc_mainwindow.cpp \
 		moc_createuserwindow.cpp \
 		moc_verifywindow.cpp \
-		moc_identifywindow.cpp
+		moc_identifywindow.cpp \
+		moc_userwindow.cpp
 OBJECTS       = main.o \
 		mainwindow.o \
 		createuserwindow.o \
@@ -65,10 +67,12 @@ OBJECTS       = main.o \
 		finger.o \
 		identifywindow.o \
 		mysqldb.o \
+		userwindow.o \
 		moc_mainwindow.o \
 		moc_createuserwindow.o \
 		moc_verifywindow.o \
-		moc_identifywindow.o
+		moc_identifywindow.o \
+		moc_userwindow.o
 DIST          = /usr/lib/qt/mkspecs/features/spec_pre.prf \
 		/usr/lib/qt/mkspecs/common/unix.conf \
 		/usr/lib/qt/mkspecs/common/linux.conf \
@@ -204,13 +208,15 @@ DIST          = /usr/lib/qt/mkspecs/features/spec_pre.prf \
 		verifywindow.h \
 		finger.h \
 		identifywindow.h \
-		mysqldb.h main.cpp \
+		mysqldb.h \
+		userwindow.h main.cpp \
 		mainwindow.cpp \
 		createuserwindow.cpp \
 		verifywindow.cpp \
 		finger.cpp \
 		identifywindow.cpp \
-		mysqldb.cpp
+		mysqldb.cpp \
+		userwindow.cpp
 QMAKE_TARGET  = Project3
 DESTDIR       = 
 TARGET        = Project3
@@ -219,7 +225,7 @@ TARGET        = Project3
 first: all
 ####### Build rules
 
-$(TARGET): ui_mainwindow.h ui_createuserwindow.h ui_verifywindow.h ui_identifywindow.h $(OBJECTS)  
+$(TARGET): ui_mainwindow.h ui_createuserwindow.h ui_verifywindow.h ui_identifywindow.h ui_userwindow.h $(OBJECTS)  
 	$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
 
 Makefile: Project3.pro /usr/lib/qt/mkspecs/linux-g++/qmake.conf /usr/lib/qt/mkspecs/features/spec_pre.prf \
@@ -508,9 +514,9 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/qt/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents mainwindow.h createuserwindow.h verifywindow.h finger.h identifywindow.h mysqldb.h $(DISTDIR)/
-	$(COPY_FILE) --parents main.cpp mainwindow.cpp createuserwindow.cpp verifywindow.cpp finger.cpp identifywindow.cpp mysqldb.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents mainwindow.ui createuserwindow.ui verifywindow.ui identifywindow.ui $(DISTDIR)/
+	$(COPY_FILE) --parents mainwindow.h createuserwindow.h verifywindow.h finger.h identifywindow.h mysqldb.h userwindow.h $(DISTDIR)/
+	$(COPY_FILE) --parents main.cpp mainwindow.cpp createuserwindow.cpp verifywindow.cpp finger.cpp identifywindow.cpp mysqldb.cpp userwindow.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents mainwindow.ui createuserwindow.ui verifywindow.ui identifywindow.ui userwindow.ui $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -542,13 +548,14 @@ compiler_moc_predefs_clean:
 moc_predefs.h: /usr/lib/qt/mkspecs/features/data/dummy.cpp
 	g++ -pipe -O2 -march=x86-64 -mtune=generic -O2 -pipe -fstack-protector-strong -Wall -W -dM -E -o moc_predefs.h /usr/lib/qt/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_mainwindow.cpp moc_createuserwindow.cpp moc_verifywindow.cpp moc_identifywindow.cpp
+compiler_moc_header_make_all: moc_mainwindow.cpp moc_createuserwindow.cpp moc_verifywindow.cpp moc_identifywindow.cpp moc_userwindow.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_mainwindow.cpp moc_createuserwindow.cpp moc_verifywindow.cpp moc_identifywindow.cpp
+	-$(DEL_FILE) moc_mainwindow.cpp moc_createuserwindow.cpp moc_verifywindow.cpp moc_identifywindow.cpp moc_userwindow.cpp
 moc_mainwindow.cpp: createuserwindow.h \
 		mainwindow.h \
 		verifywindow.h \
 		identifywindow.h \
+		userwindow.h \
 		mainwindow.h \
 		moc_predefs.h \
 		/usr/bin/moc
@@ -558,6 +565,7 @@ moc_createuserwindow.cpp: mainwindow.h \
 		createuserwindow.h \
 		verifywindow.h \
 		identifywindow.h \
+		userwindow.h \
 		createuserwindow.h \
 		moc_predefs.h \
 		/usr/bin/moc
@@ -567,6 +575,7 @@ moc_verifywindow.cpp: mainwindow.h \
 		createuserwindow.h \
 		verifywindow.h \
 		identifywindow.h \
+		userwindow.h \
 		verifywindow.h \
 		moc_predefs.h \
 		/usr/bin/moc
@@ -576,16 +585,22 @@ moc_identifywindow.cpp: mainwindow.h \
 		createuserwindow.h \
 		verifywindow.h \
 		identifywindow.h \
+		userwindow.h \
 		identifywindow.h \
 		moc_predefs.h \
 		/usr/bin/moc
 	/usr/bin/moc $(DEFINES) --include ./moc_predefs.h -I/usr/lib/qt/mkspecs/linux-g++ -I/home/bangcht/projects/project3/qt/Project3 -I/usr/include/qt -I/usr/include/qt/QtWidgets -I/usr/include/qt/QtGui -I/usr/include/qt/QtNetwork -I/usr/include/qt/QtCore -I/usr/include/c++/6.2.1 -I/usr/include/c++/6.2.1/x86_64-pc-linux-gnu -I/usr/include/c++/6.2.1/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/6.2.1/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/6.2.1/include-fixed -I/usr/include identifywindow.h -o moc_identifywindow.cpp
 
+moc_userwindow.cpp: userwindow.h \
+		moc_predefs.h \
+		/usr/bin/moc
+	/usr/bin/moc $(DEFINES) --include ./moc_predefs.h -I/usr/lib/qt/mkspecs/linux-g++ -I/home/bangcht/projects/project3/qt/Project3 -I/usr/include/qt -I/usr/include/qt/QtWidgets -I/usr/include/qt/QtGui -I/usr/include/qt/QtNetwork -I/usr/include/qt/QtCore -I/usr/include/c++/6.2.1 -I/usr/include/c++/6.2.1/x86_64-pc-linux-gnu -I/usr/include/c++/6.2.1/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/6.2.1/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/6.2.1/include-fixed -I/usr/include userwindow.h -o moc_userwindow.cpp
+
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_mainwindow.h ui_createuserwindow.h ui_verifywindow.h ui_identifywindow.h
+compiler_uic_make_all: ui_mainwindow.h ui_createuserwindow.h ui_verifywindow.h ui_identifywindow.h ui_userwindow.h
 compiler_uic_clean:
-	-$(DEL_FILE) ui_mainwindow.h ui_createuserwindow.h ui_verifywindow.h ui_identifywindow.h
+	-$(DEL_FILE) ui_mainwindow.h ui_createuserwindow.h ui_verifywindow.h ui_identifywindow.h ui_userwindow.h
 ui_mainwindow.h: mainwindow.ui \
 		/usr/bin/uic
 	/usr/bin/uic mainwindow.ui -o ui_mainwindow.h
@@ -602,6 +617,10 @@ ui_identifywindow.h: identifywindow.ui \
 		/usr/bin/uic
 	/usr/bin/uic identifywindow.ui -o ui_identifywindow.h
 
+ui_userwindow.h: userwindow.ui \
+		/usr/bin/uic
+	/usr/bin/uic userwindow.ui -o ui_userwindow.h
+
 compiler_yacc_decl_make_all:
 compiler_yacc_decl_clean:
 compiler_yacc_impl_make_all:
@@ -615,13 +634,15 @@ compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean compiler_ui
 main.o: main.cpp mainwindow.h \
 		createuserwindow.h \
 		verifywindow.h \
-		identifywindow.h
+		identifywindow.h \
+		userwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o main.cpp
 
 mainwindow.o: mainwindow.cpp mainwindow.h \
 		createuserwindow.h \
 		verifywindow.h \
 		identifywindow.h \
+		userwindow.h \
 		ui_mainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o mainwindow.cpp
 
@@ -629,6 +650,7 @@ createuserwindow.o: createuserwindow.cpp createuserwindow.h \
 		mainwindow.h \
 		verifywindow.h \
 		identifywindow.h \
+		userwindow.h \
 		ui_createuserwindow.h \
 		finger.h \
 		mysqldb.h
@@ -638,6 +660,7 @@ verifywindow.o: verifywindow.cpp verifywindow.h \
 		mainwindow.h \
 		createuserwindow.h \
 		identifywindow.h \
+		userwindow.h \
 		ui_verifywindow.h \
 		finger.h \
 		mysqldb.h
@@ -650,12 +673,17 @@ identifywindow.o: identifywindow.cpp identifywindow.h \
 		mainwindow.h \
 		createuserwindow.h \
 		verifywindow.h \
+		userwindow.h \
 		ui_identifywindow.h \
 		finger.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o identifywindow.o identifywindow.cpp
 
 mysqldb.o: mysqldb.cpp mysqldb.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mysqldb.o mysqldb.cpp
+
+userwindow.o: userwindow.cpp userwindow.h \
+		ui_userwindow.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o userwindow.o userwindow.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_mainwindow.o moc_mainwindow.cpp
@@ -668,6 +696,9 @@ moc_verifywindow.o: moc_verifywindow.cpp
 
 moc_identifywindow.o: moc_identifywindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_identifywindow.o moc_identifywindow.cpp
+
+moc_userwindow.o: moc_userwindow.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_userwindow.o moc_userwindow.cpp
 
 ####### Install
 

@@ -30,3 +30,5 @@
 
 *.bin
 *.pgm
+
+qt/build-Project3-Desktop-Debug/*

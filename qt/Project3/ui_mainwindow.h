@@ -30,7 +30,6 @@ public:
     QPushButton *newUserBtn;
     QPushButton *quitBtn;
     QPushButton *verifyBtn;
-    QPushButton *identifyBtn;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -39,25 +38,22 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
-        MainWindow->resize(400, 300);
+        MainWindow->resize(532, 324);
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         newUserBtn = new QPushButton(centralWidget);
         newUserBtn->setObjectName(QStringLiteral("newUserBtn"));
-        newUserBtn->setGeometry(QRect(100, 30, 80, 25));
+        newUserBtn->setGeometry(QRect(190, 40, 151, 71));
         quitBtn = new QPushButton(centralWidget);
         quitBtn->setObjectName(QStringLiteral("quitBtn"));
-        quitBtn->setGeometry(QRect(280, 210, 80, 25));
+        quitBtn->setGeometry(QRect(400, 210, 101, 41));
         verifyBtn = new QPushButton(centralWidget);
         verifyBtn->setObjectName(QStringLiteral("verifyBtn"));
-        verifyBtn->setGeometry(QRect(100, 80, 80, 25));
-        identifyBtn = new QPushButton(centralWidget);
-        identifyBtn->setObjectName(QStringLiteral("identifyBtn"));
-        identifyBtn->setGeometry(QRect(100, 130, 80, 25));
+        verifyBtn->setGeometry(QRect(190, 120, 151, 71));
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 400, 22));
+        menuBar->setGeometry(QRect(0, 0, 532, 19));
         MainWindow->setMenuBar(menuBar);
         mainToolBar = new QToolBar(MainWindow);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
@@ -74,10 +70,9 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", Q_NULLPTR));
-        newUserBtn->setText(QApplication::translate("MainWindow", "New User", Q_NULLPTR));
+        newUserBtn->setText(QApplication::translate("MainWindow", "Register", Q_NULLPTR));
         quitBtn->setText(QApplication::translate("MainWindow", "Quit", Q_NULLPTR));
-        verifyBtn->setText(QApplication::translate("MainWindow", "Verify", Q_NULLPTR));
-        identifyBtn->setText(QApplication::translate("MainWindow", "Identify", Q_NULLPTR));
+        verifyBtn->setText(QApplication::translate("MainWindow", "Login", Q_NULLPTR));
     } // retranslateUi
 
 };
