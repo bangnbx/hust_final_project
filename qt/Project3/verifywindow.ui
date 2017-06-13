@@ -29,7 +29,7 @@
     <set>QDialogButtonBox::Close</set>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEditUsername">
+  <widget class="QLineEdit" name="leID">
    <property name="geometry">
     <rect>
      <x>160</x>
@@ -110,7 +110,7 @@
     <string>Password</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit">
+  <widget class="QLineEdit" name="lePass">
    <property name="geometry">
     <rect>
      <x>160</x>

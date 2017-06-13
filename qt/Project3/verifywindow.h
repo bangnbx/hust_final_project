@@ -25,6 +25,8 @@ private slots:
 
   void on_buttonBox_clicked(QAbstractButton *button);
 
+  void verifyAPI();
+
 private:
   Ui::VerifyWindow *ui;
 };

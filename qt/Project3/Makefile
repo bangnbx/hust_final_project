@@ -591,7 +591,12 @@ moc_identifywindow.cpp: mainwindow.h \
 		/usr/bin/moc
 	/usr/bin/moc $(DEFINES) --include ./moc_predefs.h -I/usr/lib/qt/mkspecs/linux-g++ -I/home/bangcht/projects/project3/qt/Project3 -I/usr/include/qt -I/usr/include/qt/QtWidgets -I/usr/include/qt/QtGui -I/usr/include/qt/QtNetwork -I/usr/include/qt/QtCore -I/usr/include/c++/6.2.1 -I/usr/include/c++/6.2.1/x86_64-pc-linux-gnu -I/usr/include/c++/6.2.1/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/6.2.1/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/6.2.1/include-fixed -I/usr/include identifywindow.h -o moc_identifywindow.cpp
 
-moc_userwindow.cpp: userwindow.h \
+moc_userwindow.cpp: mainwindow.h \
+		createuserwindow.h \
+		verifywindow.h \
+		identifywindow.h \
+		userwindow.h \
+		userwindow.h \
 		moc_predefs.h \
 		/usr/bin/moc
 	/usr/bin/moc $(DEFINES) --include ./moc_predefs.h -I/usr/lib/qt/mkspecs/linux-g++ -I/home/bangcht/projects/project3/qt/Project3 -I/usr/include/qt -I/usr/include/qt/QtWidgets -I/usr/include/qt/QtGui -I/usr/include/qt/QtNetwork -I/usr/include/qt/QtCore -I/usr/include/c++/6.2.1 -I/usr/include/c++/6.2.1/x86_64-pc-linux-gnu -I/usr/include/c++/6.2.1/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/6.2.1/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/6.2.1/include-fixed -I/usr/include userwindow.h -o moc_userwindow.cpp
@@ -638,51 +643,55 @@ main.o: main.cpp mainwindow.h \
 		userwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o main.cpp
 
-mainwindow.o: mainwindow.cpp mainwindow.h \
+mainwindow.o: mainwindow.cpp ui_mainwindow.h \
+		mainwindow.h \
 		createuserwindow.h \
 		verifywindow.h \
 		identifywindow.h \
-		userwindow.h \
-		ui_mainwindow.h
+		userwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o mainwindow.cpp
 
-createuserwindow.o: createuserwindow.cpp createuserwindow.h \
+createuserwindow.o: createuserwindow.cpp ui_createuserwindow.h \
+		finger.h \
+		mysqldb.h \
+		createuserwindow.h \
 		mainwindow.h \
 		verifywindow.h \
 		identifywindow.h \
-		userwindow.h \
-		ui_createuserwindow.h \
-		finger.h \
-		mysqldb.h
+		userwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o createuserwindow.o createuserwindow.cpp
 
-verifywindow.o: verifywindow.cpp verifywindow.h \
+verifywindow.o: verifywindow.cpp ui_verifywindow.h \
+		finger.h \
+		mysqldb.h \
+		verifywindow.h \
 		mainwindow.h \
 		createuserwindow.h \
 		identifywindow.h \
-		userwindow.h \
-		ui_verifywindow.h \
-		finger.h \
-		mysqldb.h
+		userwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o verifywindow.o verifywindow.cpp
 
 finger.o: finger.cpp finger.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o finger.o finger.cpp
 
-identifywindow.o: identifywindow.cpp identifywindow.h \
+identifywindow.o: identifywindow.cpp ui_identifywindow.h \
+		finger.h \
+		identifywindow.h \
 		mainwindow.h \
 		createuserwindow.h \
 		verifywindow.h \
-		userwindow.h \
-		ui_identifywindow.h \
-		finger.h
+		userwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o identifywindow.o identifywindow.cpp
 
 mysqldb.o: mysqldb.cpp mysqldb.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mysqldb.o mysqldb.cpp
 
-userwindow.o: userwindow.cpp userwindow.h \
-		ui_userwindow.h
+userwindow.o: userwindow.cpp ui_userwindow.h \
+		userwindow.h \
+		mainwindow.h \
+		createuserwindow.h \
+		verifywindow.h \
+		identifywindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o userwindow.o userwindow.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 

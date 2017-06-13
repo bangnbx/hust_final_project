@@ -145,7 +145,7 @@ int get_data_from_username(char *username, struct fp_print_data **data)
 }
 
 
-int check(struct fp_print_data *data, QLabel *label) {
+int check(QLabel *label, QString nationalID, QString password) {
   qDebug() << "Start custom funtion\n";
 
   int r = 1;
@@ -156,7 +156,7 @@ int check(struct fp_print_data *data, QLabel *label) {
   struct fp_img *img = NULL;
 
   QNetworkAccessManager *networkManager = new QNetworkAccessManager();
-  QUrl url("http://localhost:8080/verify");
+  QUrl url("http://bangcht.me:8080/user/verify");
   QNetworkRequest request(url);
   QUrlQuery postData;
   QByteArray postData1, ba;
@@ -164,6 +164,10 @@ int check(struct fp_print_data *data, QLabel *label) {
   QHttpMultiPart *multiPart = new QHttpMultiPart(QHttpMultiPart::FormDataType);
   QHttpPart dataPart;
   QFile *sendFile;
+  QNetworkReply *reply;
+  QEventLoop loop;
+  QString returnedString;
+
   int escaped_size = 2 * 2418 + 1;
   char chunk[escaped_size];
 
@@ -209,7 +213,7 @@ int check(struct fp_print_data *data, QLabel *label) {
 
   // save new blob to file
   FILE* pFile;
-  pFile = fopen("/home/bangcht/projects/project3/new_blob_local.bin", "wb");
+  pFile = fopen("/tmp/new_blob_local.bin", "wb");
 
   if (pFile){
       fwrite(new_data1, 2418, 1, pFile);
@@ -238,7 +242,9 @@ int check(struct fp_print_data *data, QLabel *label) {
   // sending to server
   //
 
-  sendFile = new QFile("/home/bangcht/projects/project3/new_blob_local.bin");
+  sendFile = new QFile("/tmp/new_blob_local.bin");
+  request.setRawHeader("id", nationalID.toLatin1());
+  request.setRawHeader("password", password.toLatin1());
 
   dataPart.setHeader(QNetworkRequest::ContentTypeHeader, QVariant("application/octet-stream"));
   // dataPart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant("form-data; name=\"file\"; filename=\"finger\""));
@@ -247,9 +253,37 @@ int check(struct fp_print_data *data, QLabel *label) {
   sendFile->open(QIODevice::ReadOnly);
   dataPart.setBodyDevice(sendFile);
   multiPart->append(dataPart);
-  networkManager->post(request, multiPart);
+  reply = networkManager->post(request, multiPart);
 
+  // connect(reply, SIGNAL(readyRead()), this, SLOT(newData()));
 
+  QObject::connect(reply, SIGNAL(finished()), &loop, SLOT(quit()));
+
+  loop.exec();
+
+  if (reply->error() == QNetworkReply::NoError) {
+    returnedString = QString(reply->readAll());
+    if (returnedString == "-404") {
+      label->setText("Wrong ID or password");
+      label->setStyleSheet("QLabel {color : red; }");
+      qApp->processEvents();
+    } else if (returnedString == "-401") {
+      label->setText("Fingerprint does not match!");
+      label->setStyleSheet("QLabel {color : red; }");
+      qApp->processEvents();
+    }
+    else {
+      label->setText("Login successfully!");
+      label->setStyleSheet("QLabel {color : blue; }");
+      qApp->processEvents();
+      return 14;
+    }
+  } else {
+    label->setText("Login failed, please try again!");
+    label->setStyleSheet("QLabel {color : red; }");
+    qApp->processEvents();
+  }
+  return -1;
 
 
   // mysql_escape_string(chunk, (const char *)new_data1, 2418);
@@ -267,44 +301,12 @@ int check(struct fp_print_data *data, QLabel *label) {
 
   // sent to server
 
-  unsigned char *ret;
-  size_t ret_size;
-  ret_size = fp_print_data_get_data(new_data, &ret);
-//  qDebug() << "New size: ";
-//  qDebug() << ret_size;
-//  qDebug() << "\n";
-  qDebug() << "Match score:" << res;
-  qDebug() << "End custom funtion\n";
+//  unsigned char *ret;
+//  size_t ret_size;
+//  ret_size = fp_print_data_get_data(new_data, &ret);
+//  qDebug() << "Match score:" << res;
+//  qDebug() << "End custom funtion\n";
   goto out;
-
-  res = fp_verify_finger(dev, data);
-  label->setText("Login failed");
-  label->setStyleSheet("QLabel {color : red; }");
-  switch (res) {
-  case FP_VERIFY_NO_MATCH:
-    printf("FP_VERIFY_NO_MATCH\n");
-    break;
-  case FP_VERIFY_MATCH:
-    label->setText("Login sucessfully");
-    label->setStyleSheet("QLabel {color : blue; }");
-    printf("FP_VERIFY_MATCH\n");
-    break;
-  case FP_VERIFY_RETRY:
-    printf("FP_VERIFY_RETRY\n");
-    break;
-  case FP_VERIFY_RETRY_TOO_SHORT:
-    printf("FP_VERIFY_RETRY_TOO_SHORT\n");
-    break;
-  case FP_VERIFY_RETRY_CENTER_FINGER:
-    printf("FP_VERIFY_RETRY_CENTER_FINGER\n");
-    break;
-  case FP_VERIFY_RETRY_REMOVE_FINGER:
-    printf("FP_VERIFY_RETRY_REMOVE_FINGER\n");
-    break;
-  default:
-    printf("FAIL_DUE_TO_UNKNOWN_REASON\n");
-    break;
-  }
   out_close:
     fp_dev_close(dev);
   out:
@@ -316,26 +318,28 @@ void VerifyWindow::on_verifyBtn_clicked()
 {
   QProgressBar *progressBar = ui->progressBar;
   progressBar->hide();
-  QString usernameQt = ui->lineEditUsername->text();
-  QByteArray ba = usernameQt.toLatin1();
-  char *username = ba.data();
-
+  //QString usernameQt = ui->lineEditUsername->text();
+  // QByteArray ba = usernameQt.toLatin1();
+  // char *username = ba.data();
   QLabel *label = this->findChild<QLabel *>("verifyMsg");
 
-  struct fp_print_data *data;
-  int r = get_data_from_username(username, &data);
-  if (r == 0) {
-    label->setText("Please enroll your finger");
-    label->setStyleSheet("QLabel {color : blue; }");
-    progressBar->show();
+  QString nationalID = ui->leID->text();
+  QString password = ui->lePass->text();
 
-    qApp->processEvents();
-    check(data, label);
-    progressBar->hide();
-  } else {
-    printf("Username not found!");
-    label->setText("Username not found");
+  if (nationalID.length() == 0 || password.length() == 0) {
+    label->setText("Please enter ID and password!");
     label->setStyleSheet("QLabel {color : red; }");
+  } else {
+    label->setText("Please enroll your finger!");
+    label->setStyleSheet("QLabel {color : blue; }");
+    qApp->processEvents();
+    int res = check(label, nationalID, password);
+    progressBar->hide();
+    if (res == 14) {
+      this->close();
+      UserWindow *nw = new UserWindow();
+      nw->show();
+    }
   }
 }
 
@@ -344,4 +348,9 @@ void VerifyWindow::on_buttonBox_clicked(QAbstractButton *button)
   this->close();
   MainWindow *main = new MainWindow();
   main->show();
+}
+
+void VerifyWindow::verifyAPI()
+{
+  return;
 }

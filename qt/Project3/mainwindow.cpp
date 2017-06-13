@@ -25,8 +25,6 @@ void MainWindow::on_newUserBtn_clicked()
 void MainWindow::on_quitBtn_clicked()
 {
     this->close();
-    UserWindow *nw = new UserWindow();
-    nw->show();
 }
 
 void MainWindow::on_verifyBtn_clicked()

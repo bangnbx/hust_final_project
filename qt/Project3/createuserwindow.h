@@ -19,9 +19,7 @@ public:
 
 private slots:
     void on_enrollBtn_clicked();
-
     void on_buttonBox_clicked(QAbstractButton *button);
-
 
 private:
     Ui::CreateUserWindow *ui;

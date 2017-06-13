@@ -27,13 +27,13 @@ class Ui_VerifyWindow
 {
 public:
     QDialogButtonBox *buttonBox;
-    QLineEdit *lineEditUsername;
+    QLineEdit *leID;
     QPushButton *verifyBtn;
     QLabel *verifyMsg;
     QProgressBar *progressBar;
     QLabel *label;
     QLabel *label_2;
-    QLineEdit *lineEdit;
+    QLineEdit *lePass;
 
     void setupUi(QDialog *VerifyWindow)
     {
@@ -45,9 +45,9 @@ public:
         buttonBox->setGeometry(QRect(150, 280, 341, 32));
         buttonBox->setOrientation(Qt::Horizontal);
         buttonBox->setStandardButtons(QDialogButtonBox::Close);
-        lineEditUsername = new QLineEdit(VerifyWindow);
-        lineEditUsername->setObjectName(QStringLiteral("lineEditUsername"));
-        lineEditUsername->setGeometry(QRect(160, 44, 231, 51));
+        leID = new QLineEdit(VerifyWindow);
+        leID->setObjectName(QStringLiteral("leID"));
+        leID->setGeometry(QRect(160, 44, 231, 51));
         verifyBtn = new QPushButton(VerifyWindow);
         verifyBtn->setObjectName(QStringLiteral("verifyBtn"));
         verifyBtn->setGeometry(QRect(160, 160, 231, 41));
@@ -66,10 +66,10 @@ public:
         label_2 = new QLabel(VerifyWindow);
         label_2->setObjectName(QStringLiteral("label_2"));
         label_2->setGeometry(QRect(80, 120, 59, 14));
-        lineEdit = new QLineEdit(VerifyWindow);
-        lineEdit->setObjectName(QStringLiteral("lineEdit"));
-        lineEdit->setGeometry(QRect(160, 100, 231, 41));
-        lineEdit->setInputMethodHints(Qt::ImhHiddenText);
+        lePass = new QLineEdit(VerifyWindow);
+        lePass->setObjectName(QStringLiteral("lePass"));
+        lePass->setGeometry(QRect(160, 100, 231, 41));
+        lePass->setInputMethodHints(Qt::ImhHiddenText);
 
         retranslateUi(VerifyWindow);
         QObject::connect(buttonBox, SIGNAL(accepted()), VerifyWindow, SLOT(accept()));

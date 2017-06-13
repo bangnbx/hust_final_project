@@ -48,7 +48,7 @@
     <bool>false</bool>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEditUsername">
+  <widget class="QLineEdit" name="leID">
    <property name="geometry">
     <rect>
      <x>120</x>
@@ -74,8 +74,8 @@
   <widget class="QLabel" name="newMsg">
    <property name="geometry">
     <rect>
-     <x>130</x>
-     <y>140</y>
+     <x>230</x>
+     <y>210</y>
      <width>221</width>
      <height>31</height>
     </rect>
@@ -97,7 +97,7 @@
     <string>Password</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit">
+  <widget class="QLineEdit" name="lePass">
    <property name="geometry">
     <rect>
      <x>120</x>
@@ -120,7 +120,7 @@
     <string>Name</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_2">
+  <widget class="QLineEdit" name="leName">
    <property name="geometry">
     <rect>
      <x>120</x>
@@ -143,7 +143,7 @@
     <string>Address</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_3">
+  <widget class="QLineEdit" name="leAddress">
    <property name="geometry">
     <rect>
      <x>380</x>
@@ -166,7 +166,7 @@
     <string>Phone</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_4">
+  <widget class="QLineEdit" name="lePhone">
    <property name="geometry">
     <rect>
      <x>380</x>
@@ -189,7 +189,7 @@
     <string>Gender</string>
    </property>
   </widget>
-  <widget class="QRadioButton" name="radioButton">
+  <widget class="QRadioButton" name="rbFemale">
    <property name="geometry">
     <rect>
      <x>120</x>
@@ -202,7 +202,7 @@
     <string>Female</string>
    </property>
   </widget>
-  <widget class="QRadioButton" name="radioButton_2">
+  <widget class="QRadioButton" name="rbMale">
    <property name="geometry">
     <rect>
      <x>120</x>
@@ -215,7 +215,7 @@
     <string>Male</string>
    </property>
   </widget>
-  <widget class="QRadioButton" name="radioButton_3">
+  <widget class="QRadioButton" name="rbOther">
    <property name="geometry">
     <rect>
      <x>120</x>
